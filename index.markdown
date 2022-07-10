@@ -4,3 +4,6 @@
 
 layout: home
 ---
+
+This is Charles Lam's Homepage. 
+
