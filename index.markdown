@@ -10,7 +10,7 @@ This is Charles Lam's Homepage.
 # Research 
 
 ## Publications
-- Lam, C., Lau, C.-M. &amp; Lee, J. (2024). Multi-Tiered Cantonese Word Segmentation. <em>Proceedings of the Language Resources and Evaluation Conference (LREC) 14</em>, 11993–12002. <a href="https://aclanthology.org/2024.lrec-main.1047/" target = "_blank">https://aclanthology.org/2024.codi-1.7/</a>
+- Lam, C., Lau, C.-M. &amp; Lee, J. (2024). Multi-Tiered Cantonese Word Segmentation. <em>Proceedings of the Language Resources and Evaluation Conference (LREC) 14</em>, 11993–12002. 
 
 - Lam, C. &amp; Nnamoko, N. (2024). Quantitative metrics to the cars model in academic discourse in biology introductions. <em>Proceedings of the 5th Workshop on Computational Approaches to Discourse</em>, 71–77. <a href="https://aclanthology.org/2024.codi-1.7/" target = "_blank">https://aclanthology.org/2024.codi-1.7/</a>
 
