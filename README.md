@@ -18,4 +18,4 @@ I'm passionate about applying computational methods to explore linguistics, part
 
 ## How to find me:
 
-* My academic portfolio at Leeds: [https://ahc.leeds.ac.uk/language-centre/staff/6102/dr-charles-lam]
+* My academic portfolio at Leeds: https://ahc.leeds.ac.uk/language-centre/staff/6102/dr-charles-lam
