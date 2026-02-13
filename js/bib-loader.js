@@ -385,7 +385,7 @@ const BibLoader = {
         }
         container.innerHTML = html;
         if (typeof hideDuplicateDates === 'function') hideDuplicateDates();
-        if (typeof setupFiltering === 'function') setupFiltering('publications-list', 'pub-filters');
+        if (typeof setupFilters === 'function') setupFilters('pub-filters', 'publications-list', '.pub-card', 'pub-empty');
     },
 
     async loadPresentations(containerId) {
@@ -428,7 +428,7 @@ const BibLoader = {
         }
         container.innerHTML = html;
         if (typeof hideDuplicateDates === 'function') hideDuplicateDates();
-        if (typeof setupFiltering === 'function') setupFiltering('presentations-list', 'pres-filters');
+        if (typeof setupFilters === 'function') setupFilters('pres-filters', 'presentations-list', '.timeline-item', 'pres-empty');
     },
 
     init() {
