@@ -1,0 +1,113 @@
+/* Modern, minimalist light theme customizations */
+
+/* Smaller headers */
+.reveal h1 {
+    font-size: 1.8em !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+
+.reveal h2 {
+    font-size: 1.4em !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    padding-bottom: 0.5em !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    margin-bottom: 0.8em !important;
+}
+
+.reveal h3 {
+    font-size: 1.1em !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+}
+
+/* Section title slides - white text on colored background */
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2 {
+    color: #ffffff !important;
+}
+
+/* Clean body text */
+.reveal {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+.reveal p,
+.reveal li {
+    color: #374151 !important;
+    line-height: 1.6 !important;
+}
+
+/* Stylish callouts */
+.reveal .callout {
+    border-radius: 8px !important;
+    border-left-width: 4px !important;
+}
+
+.reveal .callout-tip {
+    background-color: #f0fdfa !important;
+    border-left-color: #054d47 !important;
+}
+
+.reveal .callout-note {
+    background-color: #eff6ff !important;
+    border-left-color: #3b82f6 !important;
+}
+
+/* Links */
+.reveal a {
+    color: #076860 !important;
+    text-decoration: none !important;
+}
+
+.reveal a:hover {
+    color: #0f766e !important;
+    text-decoration: underline !important;
+}
+
+/* Code blocks */
+.reveal pre {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+}
+
+.reveal code {
+    color: #0f766e !important;
+}
+
+/* Columns styling */
+.reveal .columns {
+    gap: 2em !important;
+}
+
+/* Incremental list items - subtle animation */
+.reveal .fragment {
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+/* Slide number styling */
+.reveal .slide-number {
+    color: #64748b !important;
+    font-size: 0.8em !important;
+}
+
+/* Progress bar */
+.reveal .progress {
+    background: #e2e8f0 !important;
+}
+
+.reveal .progress span {
+    background: #07625acf !important;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+    background-color: #f8fafc !important;
+    border-left: 4px solid #095750 !important;
+    padding: 1em 1.5em !important;
+    border-radius: 0 8px 8px 0 !important;
+    font-style: italic !important;
+    color: #475569 !important;
+}

@@ -1,0 +1,336 @@
+---
+title: "Vibe Coding for Language Data Visualization"
+author: "Charles Lam, Language Centre"
+date: "25 Feb 2026"
+format:
+  revealjs:
+    theme: simple
+    toc: true
+    toc-depth: 1
+    slide-number: true
+    show-slide-number: all
+    transition: slide
+    preview-links: true
+    width: 1600
+    height: 900
+    css: custom.css
+  pdf:
+    toc: true
+    number-sections: true
+    colorlinks: true
+---
+
+# Why Interactive Dashboards? {background-color="#09443fff"}
+
+## How we usually visualize data
+
+- Static charts in papers or slides
+- Screenshots from Excel or SPSS; Output from 
+- Fixed perspectives (the reader sees only what we chose to show) 
+- Linear storytelling (one path through the data) 
+
+
+## Benefits for Research Communication
+
+1. Readers can explore on their own, enhancing transparency
+2. This can better engage readers with hands-on interaction
+3. Reusable: Keep the same tool for different (sub)sets of data (we typically have the same set of methods and visualization across projects)
+
+
+## Benefits for Teaching & Learning
+
+1. Immediate response with users adjust parameters 
+2. Scaffold discovery without over-prescribing
+3. Data-Driven Learning (DDL) — Students explore corpus data directly
+
+## The "Vibe Coding" Boom 
+
+### What changed in 2025?
+- AI assistants can generate larger chunks of working code from natural language
+- No-code/low-code platforms reduce barriers
+- **Free deployment options** make sharing easy
+- The barrier is no longer technical — it's our own imagination
+
+
+## Vibe Coding = Coding by Vibes
+
+### The term (coined by Andrej Karpathy, Feb 2025)
+
+> "There's a new kind of coding I call "vibe coding", where you fully give in to the vibes, embrace exponentials, and forget that the code even exists."
+
+Source: [https://x.com/karpathy/status/1886192184808149383?lang=en]
+
+. . .
+
+**In practice:**
+
+- Describe what you want in plain English (or others languages really)
+- AI generates the code
+- You refine through conversation iteratively**
+- Deploy without deep technical knowledge**???**
+
+- "Forget that the code even exists" is not impossible, but knowing the logic / structure / code is actually quite desirable for speed and precision. 
+- AI-assisted coding does help **learning** how to code
+
+## Why It Matters for Language Researchers
+
+- Textual data are not always transparent for data scientists  
+- Think **narratives** -- the story you want to tell in the research 
+
+
+# Demo of Live Applications {background-color="#09443f"}
+
+## Demo 1: Biomedical Science Corpus Dashboard
+
+### Qualitative Methods Dashboard
+
+A data dashboard for exploring a corpus of academic writing in biomedical science.
+
+Built with Replit (plus some Python)
+
+. . .
+
+::: {.callout-tip}
+## Visit: 
+[qualitiative-methods-dashboard.replit.app](https://qualitiative-methods-dashboard.replit.app/)
+
+Click **"Use Biomedical Dataset"** to start exploring.
+:::
+
+## Demo 1: Key Features
+
+- Browse corpus texts by discipline or text type
+- Search for patterns across the collection
+- Visualize distributions of linguistic features
+- Compare subsets of the data
+- Export findings for further analysis
+
+
+## Demo 2: Move-Step Analysis Tool
+
+A tool to display rhetorical progression in the Methods section of science writing.
+
+Built with Google AI Studio
+
+. . .
+
+::: {.callout-tip}
+## AnnotateLab
+[annotatelab-860580144856.us-west1.run.app](https://annotatelab-860580144856.us-west1.run.app/)
+
+Click **"Display annotation"** (top right) — expect 4-5 seconds loading time.
+:::
+
+## Demo 2: Key Features
+
+
+- Move-Step Analysis — rhetorical structure visualization
+- AI-assisted annotation — automatic identification of moves
+- Visual progression — see how methods sections unfold
+- Pattern discovery — compare across texts
+
+
+## What These Demos Illustrate
+
+::: {.columns}
+::: {.column width="50%"}
+**Technical:**
+
+- Web-based (no installation)
+- Mobile-friendly
+- Shareable via URL
+- Free to host
+:::
+
+::: {.column width="50%"}
+**Pedagogical:**
+
+- Exploratory learning 
+- Real research data
+- Immediate feedback
+- Low-stake experimentation
+:::
+:::
+
+# Break (5 minutes) {background-color="#64748b"}
+
+# Hands-On Practice {background-color="#09443f"}
+
+## Getting Started with Google AI Studio
+
+### Why Google AI Studio?
+
+- Free to use (with Google account)
+- No installation required
+- Generates working prototypes
+
+
+. . .
+
+::: {.callout-note}
+## Access now
+Go to [aistudio.google.com](https://aistudio.google.com/) and sign in with your Google account.
+:::
+
+## Exercise 1: Simple One-Liner Prompts
+
+### Try these examples (5 mins)
+
+Copy and paste these prompts to see what AI can generate:
+
+. . .
+
+**Non-language data:**
+
+> "Create a simple web app that converts temperatures between Celsius and Fahrenheit"
+
+> "Build a to-do list app with the ability to mark tasks as complete"
+
+> "Build a visualizer to display quadratic equations."
+
+
+## Exercise 1: Language-Related Prompts
+
+**For language data:**
+
+. . .
+
+> "Create a word frequency counter that shows a bar chart of the top 10 words. The input text box goes to the left hand side. Allow the user to upload a txt file within 1MB." 
+
+. . .
+
+> "Build a simple concordancer that shows a keyword in context."
+
+. . .
+
+> "Make a readability calculator that computes Flesch-Kincaid score."
+
+## From exercise 1: Observe these aspects:
+
+- Speed — How fast can you get a working prototype?
+- Iteration — Try saying "make the chart blue" or "add a download button" **after** the first iteration
+- Limitations — What doesn't work as expected? 
+- Refinement — How specific does your prompt need to be?
+
+
+## Exercise 2: Create your own prompt 
+
+### Come up with a tool that would **tell your story**, e.g.:
+
+::: {.columns}
+- Keyword comparison tool
+- Collocation visualizer
+- POS tag distribution chart
+- Sentiment timeline
+
+:::
+
+Use the many tricks in prompt engineering: **Chain-of-Thoughts**, **metaprompting**, **references** (with images or links) 
+
+## Key Points for Effective Prompts
+
+1. What it does — Clear description of functionality and goal
+2. What data it uses — Input format (text? CSV? user upload?)
+3. What output you want — Charts? Tables? Images? Downloadable files?
+4. User interaction — Buttons? Filters? Text input?
+5. Visual style — Clean? Colorful? Minimalist?
+6. Reference — Include some links or images for inspiration 
+
+## Example: A Well-Crafted Prompt
+
+::: {.columns}
+::: {.column width="35%"}
+
+**Vague:**
+
+> "Make a word frequency tool"
+
+::: 
+
+::: {.column width="65%"}
+
+**Better:**
+
+> "Create a web app where users can paste text into a box. Use a clean, professional design with a blue color scheme. 
+When they click 'Analyze', show:
+
+1. A bar chart of the 15 most frequent words (excluding stopwords)
+
+2. A table with word, frequency, and percentage
+
+3. A download button to save results as CSV. "
+
+::: 
+::: 
+
+
+## On finding References & Inspiration
+
+### Where to look:
+
+- Existing tools 
+- Research papers — What visualizations have you seen in your field? You can also instruct the coding agent to use specific packages
+- Colleagues — Describe what you want to someone else
+- AI itself — Ask: "What are common ways to visualize corpus data? Give me 5 options for X."
+
+
+## Troubleshooting Tips
+
+### When things don't work:
+
+- Be more specific — Add details about what went wrong
+- Break it down — "First, just make the file upload work"
+- Ask for explanation — "Explain why the chart is not showing" (CoT prompting)
+- Try alternatives — "Use a different charting library"
+- Iterate — Refinement is part of the process
+
+
+## Sharing Your Work
+
+### What's next (in our subsequent sessions)?
+
+::: {.columns}
+::: {.column width="50%"}
+**For quick demos:**
+
+- Screenshot the result
+- Share the prompt as inspiration
+- Record a short video
+:::
+
+::: {.column width="50%"}
+**For real deployment:**
+
+- Export code to Replit
+- Use Streamlit Cloud
+- (Google Cloud Run)
+- GitHub Pages
+:::
+:::
+
+## Resources
+
+### Continue your journey
+
+- Google AI Studio: [aistudio.google.com](https://aistudio.google.com/)
+- Replit: [replit.com](https://replit.com/)
+- Streamlit: [streamlit.io](https://streamlit.io/)
+
+- Contact: [c.lam@leeds.ac.uk](mailto:c.lam@leeds.ac.uk)
+
+
+## Thank You! {background-color="#056961ff"}
+
+::: {.callout-tip}
+## Share your experiments, questions, and ideas!
+
+Email: [c.lam@leeds.ac.uk](mailto:c.lam@leeds.ac.uk)
+
+## Next: 
+
+- Up to 8 spots for 4-month subscription of Replit 
+- Monthly(?) meetups to share progress and further develop the projects
+- Potential for publication
+
+:::
+

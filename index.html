@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Lam - University of Leeds</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Academic profile of Charles Lam, Lecturer in English for Academic Purposes at the University of Leeds. Research in corpus linguistics, digital humanities, and language/culture.">
+    <meta name="keywords"
+        content="Charles Lam, University of Leeds, syntax, semantics, Cantonese, Mandarin, English, EAP, Digital Humanities, Corpus Linguistics">
+    <meta name="author" content="Charles Lam">
+</head>
+
+<body>
+    <!-- Decorative Background -->
+    <div class="bg-decoration">
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+    </div>
+
+    <!-- Layout Container -->
+    <div class="layout">
+
+        <!-- Sticky Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <a href="#" class="sidebar-brand">Charles Lam</a>
+                <p class="sidebar-subtitle">Lecturer in EAP<br>University of Leeds</p>
+
+                <nav class="sidebar-nav">
+                    <a href="#about" class="sidebar-link active">About</a>
+                    <a href="#publications" class="sidebar-link">Publications</a>
+                    <a href="#presentations" class="sidebar-link">Presentations</a>
+                    <a href="#tutorials" class="sidebar-link">Tutorials</a>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <a href="mailto:c.lam@leeds.ac.uk" class="sidebar-footer-link">Email</a>
+                    <a href="cv.pdf" target="_blank" class="sidebar-footer-link">CV</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- About Section -->
+            <section id="about" class="section">
+                <h1 class="page-title">Charles Lam</h1>
+                <p class="page-subtitle">Lecturer in English for Academic Purposes</p>
+                <p class="about-text">I'm currently Lecturer in English for Academic Purposes at the University of
+                    Leeds. My research interests include corpus linguistics and digital humanities.
+                    I have been working on projects related to EAP, Cantonese, and more broadly language and culture.
+                </p>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Publications</h2>
+                    <div class="filter-group" id="pub-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="eap">EAP</button>
+                        <button class="filter-btn" data-filter="linguistics">Linguistics</button>
+                        <button class="filter-btn" data-filter="hk">Hong Kong Studies</button>
+                    </div>
+                </div>
+
+                <div class="publications-list" id="publications-list">
+                    <p class="loading">Loading publications from bibliography...</p>
+                </div>
+
+                <p class="empty-state" id="pub-empty">No publications found for this category.</p>
+
+                <button class="toggle-btn" id="toggle-publications">
+                    <span class="btn-text">Show All Publications</span>
+                    <span class="btn-icon">↓</span>
+                </button>
+            </section>
+
+            <!-- Presentations Section -->
+            <section id="presentations" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Presentations</h2>
+                    <div class="filter-group" id="pres-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="eap">EAP</button>
+                        <button class="filter-btn" data-filter="linguistics">Linguistics</button>
+                        <button class="filter-btn" data-filter="hk">Hong Kong Studies</button>
+                    </div>
+                </div>
+
+                <div class="timeline" id="presentations-list">
+                    <p class="loading">Loading presentations from bibliography...</p>
+                </div>
+
+                <p class="empty-state" id="pres-empty">No presentations found for this category.</p>
+
+                <button class="toggle-btn" id="toggle-presentations">
+                    <span class="btn-text">Show All Presentations</span>
+                    <span class="btn-icon">↓</span>
+                </button>
+            </section>
+
+            <!-- Tutorials Section -->
+            <section id="tutorials" class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Tutorials & Resources</h2>
+                </div>
+
+                <div class="tutorials-grid">
+                    <a href="tutorials/vibecoding/vibecoding.html" target="_blank" class="tutorial-card">
+                        <div class="tutorial-info">
+                            <h4>Vibe coding for language data visualization</h4>
+                            <span class="tutorial-date">February 25, 2026</span>
+                        </div>
+                        <span class="tutorial-arrow">→</span>
+                    </a>
+                    <a href="tutorials/promptengineering4eap.pdf" target="_blank" class="tutorial-card">
+                        <div class="tutorial-info">
+                            <h4>Prompt Engineering for EAP</h4>
+                            <span class="tutorial-date">February 11, 2026</span>
+                        </div>
+                        <span class="tutorial-arrow">→</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <p>© 2026 Charles Lam • University of Leeds</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="js/bib-loader.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
