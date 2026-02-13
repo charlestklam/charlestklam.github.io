@@ -141,10 +141,10 @@ const BibLoader = {
         yearStr = this.cleanLatex(String(yearStr)).trim();
 
         if (yearStr.toLowerCase().includes('in prep') || yearStr.toLowerCase().includes('forthcoming')) {
-            return { year: 9999, month: 12, display: 'Forthcoming' };
+            return { year: 9999, month: 12, display: 'In prep.' };
         }
         if (yearStr.toLowerCase().includes('under review')) {
-            return { year: 9998, month: 12, display: 'Under Review' };
+            return { year: 9998, month: 12, display: 'Under<br>Review' };
         }
 
         const monthYearMatch = yearStr.match(/(\w+),?\s*(\d{4})/);
