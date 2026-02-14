@@ -69,9 +69,12 @@ function setupFilters(filterGroupId, containerId, itemSelector, emptyStateId) {
                 emptyState.classList.toggle('visible', visibleCount === 0);
             }
 
-            // Reset toggle when filter changes
+            // Check if currently expanded
             const toggleBtn = document.getElementById(containerId === 'publications-list' ? 'toggle-publications' : 'toggle-presentations');
-            if (toggleBtn) {
+            const isExpanded = toggleBtn && toggleBtn.classList.contains('expanded');
+
+            // Only reset toggle if NOT expanded
+            if (toggleBtn && !isExpanded) {
                 toggleBtn.classList.remove('expanded');
                 const btnText = toggleBtn.querySelector('.btn-text');
                 if (btnText) {
@@ -81,12 +84,14 @@ function setupFilters(filterGroupId, containerId, itemSelector, emptyStateId) {
                 }
             }
 
-            // Re-hide originally hidden items
-            allItems.forEach(item => {
-                if (item.dataset.originallyHidden === 'true') {
-                    item.classList.add('hidden');
-                }
-            });
+            // Re-hide originally hidden items ONLY if not expanded
+            if (!isExpanded) {
+                allItems.forEach(item => {
+                    if (item.dataset.originallyHidden === 'true') {
+                        item.classList.add('hidden');
+                    }
+                });
+            }
 
             // Recalculate duplicate dates based on visible items
             hideDuplicateDates();
@@ -110,10 +115,8 @@ function setupToggle(buttonId, containerId, itemSelector) {
 
     if (!button || !container) return;
 
-    let isExpanded = false;
-
     button.addEventListener('click', () => {
-        isExpanded = !isExpanded;
+        const isExpanded = !button.classList.contains('expanded');
 
         const allItems = container.querySelectorAll(itemSelector);
         const hiddenItemsCount = Array.from(allItems).filter(item => item.dataset.originallyHidden === 'true').length;
