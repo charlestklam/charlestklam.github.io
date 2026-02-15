@@ -1,8 +1,3 @@
-/* ================================================
-   CHARLES LAM - ALTERNATIVE DESIGN
-   Light Theme with Warm Tones & Left Sidebar
-   ================================================ */
-
 /* === CSS Reset & Variables === */
 *,
 *::before,
@@ -249,8 +244,8 @@ body {
 
 .about-text {
     color: var(--color-text-secondary);
-    max-width: 600px;
-    line-height: 1.7;
+    max-width: 750px;
+    line-height: 1.9;
 }
 
 .about-text strong {
