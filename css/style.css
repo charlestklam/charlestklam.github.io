@@ -29,7 +29,8 @@
     /* Category colors */
     --color-eap: #2e7d6f;
     --color-linguistics: #7c5295;
-    --color-hk: #8b5a3c;
+    --color-hk: #c69607;
+    --color-humor: #800000;
 
     --color-year-badge: #4a6741;
 
@@ -324,6 +325,11 @@ body {
     border-color: var(--color-hk);
 }
 
+.filter-btn[data-filter="humor"].active {
+    background: var(--color-humor);
+    border-color: var(--color-humor);
+}
+
 /* Category tags */
 .category-tag {
     display: inline-block;
@@ -347,8 +353,13 @@ body {
 }
 
 .category-tag.hk {
-    background: rgba(196, 92, 58, 0.1);
+    background: rgba(234, 179, 8, 0.1);
     color: var(--color-hk);
+}
+
+.category-tag.humor {
+    background: rgba(128, 0, 0, 0.1);
+    color: var(--color-humor);
 }
 
 /* === Publications === */

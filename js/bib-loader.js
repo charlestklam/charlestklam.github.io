@@ -185,6 +185,7 @@ const BibLoader = {
             if (keywordsStr.includes('eap')) tags.add('eap');
             if (keywordsStr.includes('linguistics')) tags.add('linguistics');
             if (keywordsStr.includes('hk studies') || keywordsStr.includes('hk')) tags.add('hk');
+            if (keywordsStr.includes('humor')) tags.add('humor');
         }
 
         if (tags.size > 0) return Array.from(tags).sort();
@@ -194,7 +195,7 @@ const BibLoader = {
 
         if (entry.tags) {
             const tagStr = entry.tags.toLowerCase();
-            ['eap', 'linguistics', 'hk'].forEach(tag => {
+            ['eap', 'linguistics', 'hk', 'humor'].forEach(tag => {
                 if (tagStr.includes(tag)) tags.add(tag);
             });
         }
@@ -213,8 +214,11 @@ const BibLoader = {
         const lingKeywords = ['linguistics', 'cantonese', 'syntax', 'corpus', 'nlp'];
         if (lingKeywords.some(kw => searchText.includes(kw))) tags.add('linguistics');
 
-        const hkKeywords = ['hong kong', 'cantopop', 'humor', 'dayo wong'];
+        const hkKeywords = ['hong kong', 'cantopop'];
         if (hkKeywords.some(kw => searchText.includes(kw))) tags.add('hk');
+
+        const humorKeywords = ['humor', 'dayo wong'];
+        if (humorKeywords.some(kw => searchText.includes(kw))) tags.add('humor');
 
         if (tags.size === 0) tags.add('linguistics');
 
@@ -284,7 +288,7 @@ const BibLoader = {
         if (coAuthors.length > 0) citation += ` (with ${coAuthors.join(', ')})`;
 
         const tagHTML = tags.map(tag => {
-            const label = { eap: 'EAP', linguistics: 'Linguistics', hk: 'HK Studies' }[tag] || tag;
+            const label = { eap: 'EAP', linguistics: 'Linguistics', hk: 'HK Studies', humor: 'Humor' }[tag] || tag;
             return `<span class="category-tag ${tag}">${label}</span>`;
         }).join('');
 
@@ -319,7 +323,7 @@ const BibLoader = {
         if (coAuthors.length > 0) note += ` (with ${coAuthors.join(', ')})`;
 
         const tagHTML = tags.map(tag => {
-            const label = { eap: 'EAP', linguistics: 'Linguistics', hk: 'HK Studies' }[tag] || tag;
+            const label = { eap: 'EAP', linguistics: 'Linguistics', hk: 'HK Studies', humor: 'Humor' }[tag] || tag;
             return `<span class="category-tag ${tag}">${label}</span>`;
         }).join('');
 
