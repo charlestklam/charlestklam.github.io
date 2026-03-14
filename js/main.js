@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ===== Active sidebar link on scroll =====
     setupScrollSpy();
+
+    // ===== Render tutorials/resources =====
+    renderTutorials();
 });
 
 /**
@@ -285,6 +288,47 @@ function hideDuplicateDates() {
         }
     });
 }
-
 // Call hideDuplicateDates on load
 document.addEventListener('DOMContentLoaded', hideDuplicateDates);
+
+// Render tutorials once the DOM is ready 
+document.addEventListener('DOMContentLoaded', renderTutorials);
+
+/**
+ * Render tutorials/resources data
+ */
+function renderTutorials() {
+    const container = document.querySelector('.tutorials-grid');
+    if (!container || typeof tutorialsData === 'undefined') return;
+
+    // Clear loading or existing static content
+    container.innerHTML = '';
+
+    if (tutorialsData.length === 0) {
+        container.innerHTML = '<p class="empty-state visible" style="text-align: left; padding: 1rem 0;">No resources available at the moment.</p>';
+        return;
+    }
+
+    tutorialsData.forEach(tutorial => {
+        let arrowIcon = '→';
+
+        switch (tutorial.type.toLowerCase()) {
+            case 'external':
+                arrowIcon = '↗'; // Distinct arrow for external links
+                break;
+        }
+
+        const html = `
+            <a href="${tutorial.url}" target="_blank" class="tutorial-card">
+                <div class="tutorial-info">
+                    <h4>${tutorial.title}</h4>
+                    <span class="tutorial-date">${tutorial.date}</span>
+                    <p class="tutorial-desc">${tutorial.description}</p>
+                </div>
+                <span class="tutorial-arrow">${arrowIcon}</span>
+            </a>
+        `;
+
+        container.insertAdjacentHTML('beforeend', html);
+    });
+}
