@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #ec4899;
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent-glow: rgba(79, 70, 229, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 110%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+#app-container {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    /* 30/70 Split */
+    width: 100%;
+}
+
+/* Narrative Pane */
+#narrative-pane {
+    padding: 20vh 1.5rem;
+    background: var(--bg-color);
+    z-index: 10;
+}
+
+.step {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 25vh;
+}
+
+.step.active {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+.step-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--glass-border);
+    padding: 2.5rem;
+    /* Slightly more padding for the content weight */
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    /* Ensure content fills the narrow column */
+}
+
+.step.active .step-content {
+    border-color: var(--primary);
+    box-shadow: 0 0 40px var(--accent-glow);
+}
+
+h2 {
+    font-size: 1.6rem;
+    /* Slightly smaller for 30% width */
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #818cf8, #f472b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #cbd5e1;
+}
+
+strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+em {
+    color: var(--secondary);
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* Visual Pane (The Sticky Viz) */
+#visual-pane {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: var(--bg-color);
+    transition: background 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1.5rem 0;
+}
+
+#viz-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #94a3b8;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+body.light-viz #viz-title {
+    color: #475569;
+}
+
+#ldavis-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+}
+
+#ldavis-wrapper>div {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color) !important;
+    transition: background-color 0.3s ease;
+}
+
+#visual-pane svg {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: var(--bg-color);
+}
+
+/* --- Dark mode (default): override LDAvis SVG colors --- */
+#visual-pane svg text {
+    fill: #ffffff !important;
+}
+
+#visual-pane svg .axis path,
+#visual-pane svg .axis line,
+#visual-pane svg line {
+    stroke: #334155 !important;
+}
+
+/* Background rects (plot area backdrop, not data bars) */
+#visual-pane svg>g>rect:first-child {
+    fill: var(--bg-color) !important;
+}
+
+/* --- Light mode: left panel --- */
+body.light-viz {
+    background-color: #f8fafc;
+}
+
+body.light-viz #narrative-pane {
+    background: #f8fafc;
+    border-right-color: #e2e8f0;
+}
+
+body.light-viz .step-content {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.light-viz .step.active .step-content {
+    border-color: #d62728;
+    box-shadow: 0 0 30px rgba(214, 39, 40, 0.15);
+}
+
+body.light-viz h2 {
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: #d62728;
+    color: #d62728;
+}
+
+body.light-viz p {
+    color: #000000;
+}
+
+body.light-viz strong {
+    color: #000000;
+}
+
+body.light-viz ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+/* --- Light mode: right panel --- */
+body.light-viz #visual-pane {
+    background: #f8fafc;
+}
+
+body.light-viz #ldavis-wrapper>div {
+    background-color: #ffffff !important;
+}
+
+body.light-viz #visual-pane svg {
+    background-color: #ffffff;
+}
+
+body.light-viz #visual-pane svg text {
+    fill: #1e293b !important;
+}
+
+body.light-viz #visual-pane svg .axis path,
+body.light-viz #visual-pane svg .axis line,
+body.light-viz #visual-pane svg line {
+    stroke: #94a3b8 !important;
+}
+
+body.light-viz #visual-pane svg>g>rect:first-child {
+    fill: #ffffff !important;
+}
+
+/* --- Theme toggle button --- */
+#theme-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 0.4rem 0.8rem;
+    transition: background 0.3s ease;
+}
+
+body.light-viz #theme-toggle {
+    background: rgba(248, 250, 252, 0.9);
+    border-color: #cbd5e1;
+}
+
+.toggle-icon {
+    font-size: 0.9rem;
+    line-height: 1;
+    color: #94a3b8;
+    user-select: none;
+}
+
+body.light-viz .toggle-icon {
+    color: #64748b;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 2.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-slider {
+    position: absolute;
+    inset: 0;
+    background: #334155;
+    border-radius: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.toggle-slider::before {
+    content: '';
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    left: 0.15rem;
+    top: 0.15rem;
+    background: #f8fafc;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background: #4f46e5;
+}
+
+.toggle-switch input:checked+.toggle-slider::before {
+    transform: translateX(1rem);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Hide pyLDAvis controls aggressively */
+[id*="topic-controls"],
+[id*="lambda-controls"],
+[id*="-topic-down"],
+[id*="-topic-up"],
+[id*="-topic-clear"],
+[id*="-lambda-down"],
+[id*="-lambda-up"],
+[id*="-lambda-clear"],
+[id*="-sliderDiv"],
+div[style*="background-color: #eee"],
+div[style*="background-color: #e8e8e8"],
+div[style*="background-color: rgb(238, 238, 238)"],
+div[style*="background-color:rgb(238, 238, 238)"],
+.ldavis-controls {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    #app-container {
+        grid-template-columns: 1fr;
+    }
+
+    #visual-pane {
+        position: fixed;
+        width: 100%;
+        height: 50vh;
+        z-index: 100;
+        top: 0;
+    }
+
+    #narrative-pane {
+        margin-top: 50vh;
+    }
+}
