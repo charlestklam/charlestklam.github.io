@@ -5,11 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Hide LDAvis controls on the main document ---
     const enforceHiding = () => {
         // Hide SVG text nodes by content (CSS can't match text content)
+        const bgColor = document.body.classList.contains('light-viz') ? '#f8fafc' : '#0f172a';
         document.querySelectorAll('#visual-pane svg text').forEach(el => {
-            if (el.textContent.includes('Intertopic Distance Map') ||
-                el.textContent.includes('relevance metric') ||
-                el.textContent.includes('Slide to')) {
+            const t = el.textContent.trim();
+            if (t.includes('Intertopic Distance Map') ||
+                t.includes('relevance metric') ||
+                t.includes('Slide to')) {
                 el.style.display = 'none';
+            }
+            if (t.includes('Marginal topic distribution')) {
+                el.style.display = 'none';
+            }
+            if (t === '2%' || t === '5%' || t === '10%') {
+                el.style.display = 'none';
+            }
+        });
+
+        // Hide size legend dashed circles and their connecting lines
+        document.querySelectorAll('#visual-pane svg circle').forEach(c => {
+            const da = c.getAttribute('stroke-dasharray') || c.style['stroke-dasharray'];
+            if (da) {
+                c.style.setProperty('stroke', 'none', 'important');
+                c.style.setProperty('fill', 'none', 'important');
+                // Also hide sibling lines in the same group
+                if (c.parentNode) {
+                    c.parentNode.querySelectorAll('line').forEach(ln => {
+                        ln.style.setProperty('stroke', 'none', 'important');
+                    });
+                }
             }
         });
 
@@ -17,6 +40,39 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('[id*="-sliderDiv"], [id*="lambda-controls"]').forEach(el => {
             el.style.display = 'none';
         });
+    };
+
+    // --- Mirror "N% of tokens" at the bottom of the left (MDS) panel ---
+    const setupFreqMirror = () => {
+        const svg = document.querySelector('#visual-pane svg');
+        if (!svg || svg.dataset.freqMirror) return;
+        svg.dataset.freqMirror = 'true';
+
+        const ns = 'http://www.w3.org/2000/svg';
+        const mirrorText = document.createElementNS(ns, 'text');
+        // x=295: center of left panel (margin.left=30 + mdswidth/2=265)
+        // y=750: near bottom of SVG coordinate space (total height ~780)
+        mirrorText.setAttribute('x', '295');
+        mirrorText.setAttribute('y', '750');
+        mirrorText.setAttribute('text-anchor', 'middle');
+        mirrorText.setAttribute('font-size', '16');
+        mirrorText.id = 'ldavis-freq-mirror';
+        svg.appendChild(mirrorText);
+
+        const syncFreq = () => {
+            // Wait briefly for pyLDAvis to finish updating the DOM
+            setTimeout(() => {
+                let found = '';
+                svg.querySelectorAll('text').forEach(el => {
+                    if (el.id === 'ldavis-freq-mirror') return;
+                    const match = el.textContent.match(/([\d.]+% of tokens)/);
+                    if (match) found = match[1];
+                });
+                mirrorText.textContent = found;
+            }, 80);
+        };
+
+        svg.addEventListener('click', syncFreq);
     };
 
     // --- Make the LDAvis SVG fill its container responsively ---
@@ -38,10 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Left → Right: find circle by topic ID and click it ---
     const syncNarrativeToVisualization = (topicId) => {
-        if (topicId === '0' || !topicId) {
-            // Deselect: click the SVG background if a topic is active
-            const activeDot = document.querySelector('circle.dot.selected, circle.dot[style*="stroke-width: 3"]');
-            if (activeDot) activeDot.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+        const topicNum = parseInt(topicId, 10);
+        if (!topicId || topicNum < 1 || topicNum > 10) {
+            // Deselect: click the transparent background rect of the MDS plot,
+            // which pyLDAvis uses as its own reset/click-away handler
+            const bgRect = document.querySelector('#visual-pane svg rect');
+            if (bgRect) bgRect.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
             return;
         }
         const id = parseInt(topicId, 10);
@@ -122,16 +180,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     steps.forEach(step => observer.observe(step));
 
-    // Poll until LDAvis SVG renders, then make it responsive.
-    // Keep hiding controls for a short while since LDAvis renders them asynchronously.
-    let hideCount = 0;
-    const initInterval = setInterval(() => {
-        const svg = document.querySelector('#visual-pane svg');
-        if (svg) makeResponsive();
+    // Use MutationObserver to reliably catch the SVG once pyLDAvis finishes
+    // loading asynchronously, then apply viewBox + hiding fixes.
+    const vizPane = document.getElementById('visual-pane');
+    const svgObserver = new MutationObserver(() => {
+        const svg = vizPane.querySelector('svg');
+        if (svg) {
+            makeResponsive();
+            setupFreqMirror();
+            // Run enforceHiding several times to catch elements added after SVG
+            let count = 0;
+            const hideInterval = setInterval(() => {
+                enforceHiding();
+                if (++count >= 20) clearInterval(hideInterval);
+            }, 100);
+            svgObserver.disconnect();
+        }
+    });
+    svgObserver.observe(vizPane, { childList: true, subtree: true });
+
+    // Also run immediately in case the SVG is already present
+    if (vizPane.querySelector('svg')) {
+        makeResponsive();
+        setupFreqMirror();
         enforceHiding();
-        hideCount++;
-        if (hideCount >= 20) clearInterval(initInterval); // stop after ~2s
-    }, 100);
+        svgObserver.disconnect();
+    }
 
     // --- Theme toggle ---
     const checkbox = document.getElementById('viz-theme-checkbox');
