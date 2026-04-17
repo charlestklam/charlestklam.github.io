@@ -1,0 +1,61 @@
+---
+title: "Visualizing the DNA of discourse"
+subtitle: "Sequencing rhetorical moves and steps in Python"
+author: "Charles Lam"
+institute: "Language Centre, University of Leeds"
+conference: "EUROCALL 2026, Ulster University"
+date: "2026-09-08"
+format:
+  revealjs:
+    theme: dracula # white, solarized, moon, dracula
+    transition: fade
+    slide-number: true
+    self-contained: true
+---
+
+
+## Overview
+
+1. Challenges for advanced L2 writer-researchers
+2. 
+3. 
+4. 
+
+## The Challenge for L2 Writers
+
+* Novice and L2 writers often struggle to replicate discipline-specific rhetorical structures.
+* They may understand general concepts like "providing background" but miss underlying organizational patterns. 
+
+
+* **Goal:** Make these opaque academic norms visible and intuitive.
+
+## The Cross-Disciplinary Metaphor: DNA sequencing and MSA 
+
+* Inspired by **Multiple Sequence Alignment (MSA)** from biology used to identify DNA regions.
+* We treat annotated text sequences (e.g., 'M1S3') as "DNA strips".
+* This transforms abstract linguistic notions into tangible, data-driven learning instruments.
+
+<!-- ## {background-iframe="https://charlestklam.github.io/" data-background-interactive=true} -->
+
+## Demo: MoveStepViz Web App
+
+<!-- {{< iframe https://charlestklam.github.io/ width="100%" height="500" >}} -->
+<iframe src="https://charles-lam.net/tutorials/promptengineering4eap.pdf" width="100%" height="500px" style="border: 1px solid #eee;"></iframe>
+
+::: footer
+Project Link: [github.com/charlestklam/MoveStepViz](https://github.com/charlestklam/)
+:::
+
+## AI-Assisted Development
+
+* **Workflow:** Domain expertise in linguistics defines the pedagogical goals.
+* **Implementation:** GenAI agents accelerate coding and tool fine-tuning.
+* This lowers the technical threshold for linguists to create bespoke tools for niche problems.
+
+## References
+
+::: {#refs}
+Cotos, E., Huffman, S., & Link, S. (2017). A move/step model for methods sections: Demonstrating rigour and credibility. *English for Specific Purposes*, 46, 90-106.
+
+Swales, J. M. (2004). *Research genres: Explorations and applications*. Cambridge University Press. 
+:::

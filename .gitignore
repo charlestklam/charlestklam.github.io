@@ -1,8 +1,0 @@
-.DS_Store
-Thumbs.db
-*.swp
-*.log
-node_modules/
-.vscode/
-.idea/
-.gitignore
