@@ -1,0 +1,234 @@
+/* Modern, minimalist light theme customizations */
+
+/* Smaller headers */
+.reveal h1 {
+    font-size: 2.2em !important;
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+
+.reveal h2 {
+    font-size: 1.8em !important;
+    font-weight: 500 !important;
+    color: #334155 !important;
+    padding-bottom: 0.3em !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+    margin-bottom: 0.5em !important;
+}
+
+.reveal h3 {
+    font-size: 1.5em !important;
+    font-weight: 350 !important;
+    color: #475569 !important;
+}
+
+/* Table of contents */
+
+#toc-title {
+    margin-bottom: 0.3em !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+}
+
+/* Section title slides - white text on colored background */
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2 {
+    color: #ffffff !important;
+}
+
+section#title-slide {
+    /*position: relative !important;*/
+    height: 100% !important;
+}
+
+
+/* Quarto's TOC slide usually has the ID #TOC or a specific class */
+.reveal #TOC {
+    vertical-align: top !important;
+    /* Forces content to start higher */
+}
+
+.reveal #TOC h2#toc-title {
+    margin-top: 0 !important;
+    /* Removes top gap */
+    padding-top: 0 !important;
+    margin-bottom: 0.2em !important;
+    font-size: 1.5em !important;
+    /* Keeps it professional and small */
+}
+
+/* Ensure the main title doesn't hit the conference tag */
+.reveal #title-slide h1.title {
+    margin-top: 2.5em !important;
+    padding-bottom: 120px !important;
+}
+
+.reveal .subtitle {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+    font-size: 0.8em !important;
+    color: #056961 !important;
+    font-weight: 500 !important;
+    vertical-align: top;
+}
+
+/* Clean body text */
+.reveal {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-size: 44px;
+}
+
+.reveal section.level1 h1 .newline {
+    display: block;
+}
+
+.reveal p,
+.reveal li {
+    color: #374151 !important;
+    line-height: 1.6 !important;
+}
+
+/* Stylish callouts */
+.reveal .callout {
+    border-radius: 8px !important;
+    border-left-width: 4px !important;
+}
+
+.reveal .callout-tip {
+    background-color: #f0fdfa !important;
+    border-left-color: #054d47 !important;
+}
+
+.reveal .callout-note {
+    background-color: #eff6ff !important;
+    border-left-color: #3b82f6 !important;
+}
+
+.reveal .tiny-text {
+    font-size: 0.7em !important;
+    line-height: 0.65 !important;
+}
+
+.reveal .medium-small {
+    font-size: 1em !important;
+}
+
+.reveal .bibliography {
+    font-size: 0.65em !important;
+    line-height: 0.4 !important; 
+    padding-left: 1.2em !important;
+    text-indent: -1.2em !important;
+    margin-bottom: 0.3em !important;
+}
+
+/* Links */
+.reveal a {
+    color: #076860 !important;
+    text-decoration: none !important;
+}
+
+.reveal a:hover {
+    color: #0f766e !important;
+    text-decoration: underline !important;
+}
+
+/* Code blocks */
+.reveal pre {
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+}
+
+.reveal code {
+    color: #0f766e !important;
+}
+
+/* Columns styling */
+.reveal .columns {
+    gap: 2em !important;
+}
+
+/* Incremental list items - subtle animation */
+.reveal .fragment {
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+/* Slide number styling */
+.reveal .slide-number {
+    color: #64748b !important;
+    font-size: 0.6em !important;
+    padding: 0.5em 0.5em !important;
+}
+
+/* Progress bar */
+.reveal .progress {
+    background: #e2e8f0 !important;
+}
+
+.reveal .progress span {
+    background: #07625acf !important;
+}
+
+/* Blockquotes */
+.reveal blockquote {
+    background-color: #f8fafc !important;
+    border-left: 4px solid #095750 !important;
+    padding: 1em 1.5em !important;
+    border-radius: 0 8px 8px 0 !important;
+    font-style: italic !important;
+    color: #475569 !important;
+}
+
+/* Center image captions */
+.reveal figcaption,
+.reveal .figure-caption {
+    text-align: center !important;
+}
+
+/* Collapsible container styling */
+.reveal details.collapsible {
+    margin: 1em 0 !important;
+    text-align: center !important;
+}
+
+.reveal details.collapsible summary {
+    display: inline-block !important;
+    padding: 0.4em 1.2em !important;
+    background-color: #f8fafc !important;
+    color: #076860 !important;
+    border: 2px solid #076860 !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 0.75em !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+.reveal details.collapsible summary:hover {
+    background-color: #076860 !important;
+    color: #ffffff !important;
+}
+
+.reveal details.collapsible[open] summary {
+    margin-bottom: 1em !important;
+}
+
+/* Ensure scrollable slides use the full vertical space */
+.reveal .slides section.scrollable {
+    height: 100% !important;
+    max-height: 100% !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Change the color of highlighted text */
+::selection {
+  background-color: #7db5b1; /* Using the green from your title slide */
+  color: #ffffff; /* The text color while highlighted */
+}
+/* For compatibility with older versions of Firefox */
+::-moz-selection {
+  background-color: #7db5b1;
+  color: #ffffff;
+}
