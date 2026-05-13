@@ -327,13 +327,14 @@ const BibLoader = {
             return `<span class="category-tag ${tag}">${label}</span>`;
         }).join('');
 
+        const linkHTML = entry.url ? `<a href="${entry.url.startsWith('http') || entry.url.startsWith('/') ? entry.url : 'https://' + entry.url}" target="_blank" class="pub-link">View Presentation →</a>` : '';
         const dateClass = showDate ? '' : ' duplicate-date';
 
         return `<div class="timeline-item" data-categories="${dataCategories}">
                     <div class="timeline-date${dateClass}">${dateDisplay}</div>
                     <div class="timeline-content">
                         <div class="timeline-content-main"><p><span class="pub-title">${title}</span>. ${note}</p></div>
-                        <div class="timeline-content-actions">${tagHTML}</div>
+                        <div class="timeline-content-actions">${tagHTML}${linkHTML}</div>
                     </div>
                 </div>`;
     },
