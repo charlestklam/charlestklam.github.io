@@ -341,8 +341,7 @@ const BibLoader = {
 
     async fetchBibFile(url, sourceName) {
         try {
-            // Add a cache-busting query parameter to ensure we get the latest file
-            const response = await fetch(`${url}?t=${new Date().getTime()}`);
+            const response = await fetch(url);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             const content = await response.text();
             return this.parseBibFile(content, sourceName);
