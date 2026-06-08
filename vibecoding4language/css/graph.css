@@ -1,0 +1,169 @@
+/* ----------------------------------------------------
+   STATIC NETWORK GRAPH PRESENTATION STYLES
+   ---------------------------------------------------- */
+
+/* Widen the network part to be more than half the width on desktop */
+@media (min-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 0.7fr 1.3fr !important;
+        gap: 3.5rem !important;
+    }
+}
+
+/* Container for the network graph side */
+.hero-graph-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.graph-container {
+    width: 100%;
+    aspect-ratio: 1.25 / 1;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow);
+    padding: 1.5rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+    .graph-container {
+        aspect-ratio: 1.6 / 1; /* Less tall on desktop */
+    }
+}
+
+/* Base grid in background of graph */
+.graph-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 30px 30px;
+    background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.015) 1px, transparent 1px);
+    pointer-events: none;
+}
+
+.network-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Edges styling */
+.edge-glow {
+    stroke: rgba(var(--accent-rgb), 0.08);
+    stroke-width: 6px;
+    transition: var(--transition-smooth);
+}
+
+.edge-line {
+    stroke: rgba(var(--accent-rgb), 0.35);
+    stroke-width: 1.5px;
+    transition: var(--transition-smooth);
+}
+
+/* Center node styling */
+.graph-center-node {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    border: 3.5px solid white;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        0 8px 20px rgba(99, 102, 241, 0.15),
+        inset 0 0 10px rgba(255,255,255,0.15);
+}
+
+.graph-center-node .logo-dot {
+    width: 8px;
+    height: 8px;
+    background: white;
+    margin-bottom: 4px;
+}
+
+.graph-center-node .center-title {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+}
+
+/* App Node Styling */
+.graph-node {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: white;
+    border: 1.8px solid rgba(var(--accent-rgb), 0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: var(--transition-bounce);
+    padding: 8px;
+    text-align: center;
+    pointer-events: auto;
+}
+
+.node-index {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(var(--accent-rgb), 0.85);
+    margin-bottom: 2px;
+}
+
+.node-area {
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: rgba(var(--accent-rgb), 0.95);
+    margin-bottom: 2px;
+}
+
+.node-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.72rem;
+    line-height: 1.15;
+    color: var(--text-primary);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* Hover effects grouped by G */
+.graph-node-group:hover .edge-line {
+    stroke: rgb(var(--accent-rgb));
+    stroke-width: 2.5px;
+}
+
+.graph-node-group:hover .edge-glow {
+    stroke: rgba(var(--accent-rgb), 0.2);
+    stroke-width: 9px;
+}
+
+.graph-node-group:hover .graph-node {
+    transform: scale(1.08);
+    border-color: rgb(var(--accent-rgb));
+    border-width: 2.5px;
+    box-shadow: 0 8px 24px var(--accent-glow);
+}

@@ -1,0 +1,119 @@
+/* ====================================================
+   UNIVERSITY OF LEEDS (DCCH) BRAND THEME OVERRIDE
+   ==================================================== 
+   Apply this stylesheet to transform the site colors
+   to match the University of Leeds digital guidelines.
+   ==================================================== */
+
+:root {
+    /* Primary University Brand Palette */
+    --uol-red: #c70000;
+    --uol-red-dark: #910000;
+    --uol-red-bright: #ff4e36;
+    --uol-red-pastel: #ff8a7a;
+    --uol-red-faded: #ffeded;
+    
+    /* Neutrals */
+    --uol-black: #212121;
+    --uol-black-dark: #0a0202;
+    --uol-grey-light: #fcfcfc;
+    --uol-grey-border: rgba(33, 33, 33, 0.08);
+
+    /* Override Design tokens */
+    --bg-primary: #fffcfc; /* Warm, red-white primary background */
+    --bg-secondary: var(--uol-red-faded);
+    --text-primary: var(--uol-black);
+    --text-secondary: #424242;
+    --text-muted: #757575;
+    
+    --border-color: var(--uol-grey-border);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(199, 0, 0, 0.08);
+    --glass-shadow: 0 8px 32px rgba(199, 0, 0, 0.03);
+}
+
+/* Logo icon dot coloring */
+.logo-dot {
+    background: var(--uol-red) !important;
+}
+
+/* Navigation items hover slide-bars */
+.nav-item::after {
+    background: var(--uol-red) !important;
+}
+
+/* Primary text gradient styling for Leeds Red */
+.text-gradient {
+    background: linear-gradient(135deg, var(--uol-red-dark) 20%, var(--uol-red) 60%, var(--uol-red-bright) 100%) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Hero Badge tag */
+.hero-badge {
+    background: rgba(199, 0, 0, 0.05) !important;
+    color: var(--uol-red) !important;
+    border-color: rgba(199, 0, 0, 0.12) !important;
+}
+
+/* Background Glowing Ambient Orbs */
+.orb-1 {
+    background: radial-gradient(circle, rgba(199, 0, 0, 0.45) 0%, rgba(145, 0, 0, 0.18) 100%) !important;
+}
+.orb-2 {
+    background: radial-gradient(circle, rgba(255, 78, 54, 0.35) 0%, rgba(255, 138, 122, 0.08) 100%) !important;
+}
+.orb-3 {
+    background: radial-gradient(circle, rgba(145, 0, 0, 0.3) 0%, rgba(199, 0, 0, 0.08) 100%) !important;
+}
+
+/* Force Leeds Red accents on showcase cards */
+.showcase-card {
+    --accent-color: 199, 0, 0 !important; /* RGB of #c70000 */
+    --accent-glow: rgba(199, 0, 0, 0.07) !important;
+    border-color: rgba(199, 0, 0, 0.08) !important;
+}
+
+.showcase-card:hover {
+    border-color: rgba(199, 0, 0, 0.25) !important;
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(199, 0, 0, 0.1) !important;
+}
+
+/* Showcase card back numbers hover state */
+.showcase-card:hover .app-number {
+    color: rgba(199, 0, 0, 0.04) !important;
+}
+
+/* Mini Cards accent overriding */
+.hero-mini-card {
+    --accent-color: 199, 0, 0 !important;
+    --accent-glow: rgba(199, 0, 0, 0.04) !important;
+    border-color: rgba(199, 0, 0, 0.06) !important;
+}
+
+.hero-mini-card:hover {
+    border-color: rgba(199, 0, 0, 0.22) !important;
+    box-shadow: 0 10px 30px rgba(199, 0, 0, 0.06) !important;
+}
+
+/* Visual device mockup adjustments */
+.device-mockup {
+    border-color: rgba(199, 0, 0, 0.08) !important;
+}
+
+.mockup-header {
+    background: #fdf5f5 !important;
+    border-bottom: 1px solid rgba(199, 0, 0, 0.06) !important;
+}
+
+/* Fallback gradient styling matching Leeds Red spectrum */
+.placeholder-gradient-1,
+.placeholder-gradient-2,
+.placeholder-gradient-3,
+.placeholder-gradient-4,
+.placeholder-gradient-5 {
+    background: radial-gradient(circle at 20% 30%, var(--uol-red-dark) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, var(--uol-red-bright) 0%, transparent 70%),
+                var(--uol-red) !important;
+}
