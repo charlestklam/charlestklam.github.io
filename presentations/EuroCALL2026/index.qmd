@@ -214,7 +214,7 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 Demo: <https://charles-lam.net/movestepviz/>{target="_blank"}
 
 <iframe 
-  src="https://charlestklam.github.io/movestepviz/" 
+  data-src="https://charlestklam.github.io/movestepviz/" 
   style="width: 100%; height: 700px; border: 0.5px solid #94a3b8; border-radius: 8px; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"
   allow="clipboard-write">
 </iframe>
