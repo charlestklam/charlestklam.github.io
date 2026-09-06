@@ -211,7 +211,7 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 # More Intuitive Input to MoveStepViz? {background-color="#cbd5e1"}
 
 ## Web Interface 
-Demo: <https://charles-lam.net/movestepviz/>{target="_blank"}
+<!-- Demo: <https://charles-lam.net/movestepviz/>{target="_blank"} -->
 
 <iframe 
   src="https://charles-lam.net/movestepviz/" 
