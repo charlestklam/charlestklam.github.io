@@ -22,7 +22,9 @@ format:
 ```{=html}
 <div class="title-slide-container">
   <div class="title-header">
-    <img src="img/belfast_logo.jpg" class="belfast-logo nostretch" width="150" alt="Belfast 2026">
+    <a href="https://blogs.ulster.ac.uk/eurocallconference2026/" target="_blank" rel="noopener noreferrer">
+      <img src="img/belfast_logo.jpg" class="belfast-logo nostretch" width="150" alt="Belfast 2026">
+    </a>
     <div class="eurocall-title-text">EuroCALL 2026 | Belfast</div>
   </div>
 
@@ -107,29 +109,27 @@ Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the r
 :::
 :::
 
-
-# Visualization with Cross-Disciplinary Inspiration {background-color="#cbd5e1"}
-
-## The "DNA of Discourse" Metaphor
+## Multiple Sequence Alignment (MSA) 
 
 :::: {.columns}
 ::: {.column width="50%"}
-### Multiple Sequence Alignment (MSA) in Bioinformatics
-![Multiple Sequence Alignment <https://en.wikipedia.org/wiki/Biological_data_visualization>](img/multiseqalign.png){width="95%"}
+![Multiple Sequence Alignment (MSA) in Bioinformatics <https://en.wikipedia.org/wiki/Biological_data_visualization>](img/multiseqalign.png){width="95%"}
 
-* Aligns DNA/RNA/amino acid sequences into color-coded blocks.
+* Aligns DNA/RNA/amino acid sequences into colour-coded blocks.
 * Reveals patterns, mutations, and conservation across organisms, by comparing rows. 
 :::
 
 ::: {.column width="50%"}
-### Discourse & Linguistics
+::: {.fragment}
+
+::: {.callout-note}
+### The "DNA of Discourse"
+**Multiple Sequence Alignment** in biology translates directly to **Rhetorical Sequence Alignment** in language education:
+:::
 
 * Like organisms, texts contain basic components that often display a **normal**, **typical** order. 
 * By visualizing the pattern, users can compare similarity and diversity. 
 
-::: {.callout-note}
-### The Pedagogical Parallel
-**Multiple Sequence Alignment** in biology translates directly to **Rhetorical Sequence Alignment** in language education:
 :::
 
 :::
@@ -210,8 +210,8 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 
 # More Intuitive Input to MoveStepViz? {background-color="#cbd5e1"}
 
-## Web-based Graphical User Interface 
-[https://charles-lam.net/movestepviz](https://charles-lam.net/movestepviz){target="_blank"}
+## Web Interface 
+Demo: <https://charles-lam.net/movestepviz/>{target="_blank"}
 
 <iframe 
   src="https://charlestklam.github.io/movestepviz/" 
@@ -220,192 +220,48 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 </iframe>
 
 
-# Pedagogical Applications in CALL {background-color="#cbd5e1"}
 
-## 1. Data-Driven Learning (DDL) & Discovery {background-color="#d78aefff"}
+# Implications 
 
-:::: {.columns}
-::: {.column width="60%"}
-### Moving from Rule-Memorizing to Pattern Discovery
-* Students explore reference corpora of published articles in their target discipline.
-* Visualizing multiple articles simultaneously reveals **genre flexibility** (e.g. cyclical move patterns vs. linear progressions).
-* Learners notice that Move 2 (Gap) frequently recurs before subsequent sub-aims.
-:::
+## Data-Driven Learning for Genre Knowledge
 
-::: {.column width="40%"}
-::: {.callout-tip}
-### In the Classroom
-Ask students: *"Look at these 10 published introductions. Do all authors follow 1a $\rightarrow$ 1b $\rightarrow$ 2a $\rightarrow$ 3a, or where do they diverge?"*
-:::
+
+## Educator as Developer
+
+*Educator have always been developers:* 
+
+* Making meaning (backend logic) visible with form (frontend interaction)
+* Anticipating & accommodating different 'user behaviours'
+* Constant error handling, adaptation & updating
+
+:::: {.callout-lg .fragment}
+::: {.callout-note}
+## What AI-assisted programming buys us
+- Rapid prototyping & builds
+- Reduced technical challenge  
+- More time for creating bespoke tools! 
 :::
 ::::
 
----
-
-## 2. Comparative Feedback (Novice vs. Expert) {background-color="#d78aefff"}
-
-::: {.columns}
-::: {.column width="50%"}
-### Student Draft (Novice)
-* Long green chains (**Move 1: Literature**) without ever establishing a research gap (**Move 2**).
-* Sudden jump to **Move 3** without justifying the contribution.
-:::
-
-::: {.column width="50%"}
-### Target Model (Published)
-* Balanced sequence: Territory $\rightarrow$ Topic generalizations $\rightarrow$ Explicit Gap $\rightarrow$ Clear contribution.
-:::
-:::
-
-::: {.callout-note}
-### Actionable Visual Feedback
-Instead of saying *"your introduction lacks focus"*, teachers point to the missing color block: *"Notice there is no red block (Move 2: Gap) between your green literature review and blue purpose statement."*
-:::
-
-
-## 3. Why the Python package when you have the web-interface? 
-
-::: {.columns}
-  ::: {.column width="50%"}
-  ### Automation
-  - 
-  - 
-  - 
-  :::
-
-  ::: {.column width="50%"}
-  ### GenAI Integration
-  - The 
-  - A `skills.md` file is created for AI agents to connect with 
-  - **Next step:** (Semi-)Automated annotation!
-  :::
-:::
- 
-
-
-## 4. Student Self-Assessment & Peer Review {background-color="#fefeffff"}
-
-::: {.columns}
-::: {.column width="33%"}
-### 1. Annotate
-Students tag their own sentences using simple drop-down menus or step labels.
-:::
-
-::: {.column width="33%"}
-### 2. Visualize
-Generate the DNA strip of their draft with one click in the web app.
-:::
-
-::: {.column width="33%"}
-### 3. Diagnose
-Visually inspect structural flow, missing steps, or disjointed move transitions before submission.
-:::
-:::
-
-::: {.fragment}
-> **Linguistic Inclusion**: Demystifies implicit academic conventions for international and multilingual scholars who may not share Anglophone genre expectations.
-:::
-
----
-
-# Teacher-Friendly Workflows {background-color="#d78aefff"}
-
-## Intuitive Data Input for Educators
-
-Teachers and students can organize datasets in two intuitive formats:
-
-::: {.columns}
-::: {.column width="50%"}
-### Wide Format (1 Row per Article)
-* Perfect for overviewing a whole classroom corpus at a glance.
-```csv
-article_id,step_1,step_2,step_3,step_4
-Student_A,M1-S1,M1-S2,M2-S1,M3-S1
-Student_B,M1-S1,M1-S3,M1-S2,M3-S1
-Expert_01,M1-S1,M1-S3,M2-S1B,M3-S1A
-```
-:::
-
-::: {.column width="50%"}
-### Long Format (Sentence-by-Sentence)
-* Ideal when attaching actual sentence text for concordance study.
-```csv
-sentence_id,label,text
-1,M1-S1,Discourse analysis is vital...
-2,M1-S2,Recent studies focus on...
-3,M2-S1B,However, visualization is...
-4,M3-S1A,This paper introduces...
-```
-:::
-:::
-
----
-
-## Effortless Python & CLI Integration
-
-For researchers and CALL developers, one line generates the visual:
-
-```python
-import movestepviz as msv
-
-# 1-Line Generation: Reads files or Python lists
-msv.visualize(
-    data="classroom_corpus.csv",
-    scheme="Swales2004",
-    title="Research Introduction: Rhetorical Progression",
-    labelling_scheme="number-letter",  # Formats as 1a, 1b, 2a, 3a
-    output="rhetorical_dna.png"
-)
-```
-
-::: {.callout-tip}
-### Web-First Option
-Language teachers without Python installed can achieve the identical output through the **interactive web tool**.
-:::
-
----
-
-# AI-Assisted CALL Tool Development {background-color="#d78aefff"}
-
-## A New Paradigm for Language Teachers
-
-How domain experts can create bespoke digital humanities tools in the GenAI era:
-
-```
-┌─────────────────────────────────┐       ┌─────────────────────────────────┐
-│   Applied Linguist / Teacher    │       │        GenAI Coding Agents      │
-│                                 │       │                                 │
-│  • Pedagogical Goal Definition  │ ────► │  • Rapid Prototyping & Builds   │
-│  • Genre Framework Expertise    │       │  • Python / Matplotlib Engine   │
-│  • Classroom User Requirements  │ ◄──── │  • Packaging & Web Interface    │
-└─────────────────────────────────┘       └─────────────────────────────────┘
-```
-
-::: {.incremental}
-* **Lowering Technical Thresholds**: Linguists no longer need extensive software engineering backgrounds to build robust CALL software.
-* **Pedagogy Leads Technology**: Teaching requirements drive the architecture, while AI handles technical implementation.
-:::
-
-## Potential Use beyond Genre Knowledge 
+## Potential Use beyond Genre in EAP  
 
 * Narrative structure & progression 
-
-
+  - 
 
 * Interactions and turn-taking 
 
-
 # Summary & Takeaways {background-color="#cbd5e1"}
 
-1. **Making Rhetoric Moves-Step Analysis Visible**: MoveStepViz transforms abstract genre concepts into tangible, visual DNA strips.
-2. **Flexible Adoption**: Supports both a zero-code web interface and a lightweight Python package `movestepviz` (in conjunction with GenAI) 
-3. **Empowering CALL Educators**: Demonstrates how language specialists can build and deploy bespoke tools for their classroom needs.
+1. Making Rhetoric Moves-Step Analysis Visible
+2. Flexible Adoption (web interface & Python package `movestepviz`) 
+3. Empowering CALL Educators with custom tools for their own classroom needs
+4. **Next step**: Connecting with automated annotation! 
 
 ## Thank You! Questions and Comments Are Welcome!
 
 ::: {.columns}
 ::: {.column width="55%"}
-::: {style="font-size: 0.8em;"}
+::: {style="font-size: 0.8em; max-height: 460px; overflow-y: auto; padding-right: 15px;"}
 
 **References**
 

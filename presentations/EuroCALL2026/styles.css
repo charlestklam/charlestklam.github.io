@@ -64,3 +64,17 @@
   font-size: 1.3em;
   line-height: 1.3;
 }
+
+/* Callout sizing (overriding reveal.js smaller: true reduction) */
+.reveal.smaller .slides section div.callout {
+  font-size: 0.95em;
+}
+
+.reveal .slides section .callout-lg div.callout,
+.reveal.smaller .slides section .callout-lg div.callout {
+  font-size: 1.25em;
+}
+.reveal .slides section .callout-lg .callout-title p,
+.reveal.smaller .slides section .callout-lg .callout-title p {
+  font-size: 1.1em;
+}
