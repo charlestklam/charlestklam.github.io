@@ -96,8 +96,7 @@ Novice and L2 academic writers often struggle to replicate the rhetorical expect
 :::
 :::
 
-::: {.column width="55%"}
-<!-- ### Sample Steps in Introduction -->
+::: {.column width="50%"}
 
 ::: {.r-stack .sample-stack}
 ::: {.fragment .fade-out fragment-index=1}
@@ -214,12 +213,16 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 
 ## Pre-loaded Genre & Section Schemes
 
+<br>
+
 | Scheme | Research Article Section | Foundational Research |
 | :--- | :--- | :--- |
 | **`Swales2004`** | **Introduction** (CARS model) | Swales (1990, 2004) |
 | **`Cotos_etal2017`** | **Methods** (DRaC model) | Cotos, Huffman, & Link (2017) |
 | **`Yang_Allison2003_Results`** | **Results** | Yang & Allison (2003) |
 | **`Yang_Allison2003_Discussion`** | **Discussion** | Yang & Allison (2003) |
+
+<br><br>
 
 | **Custom Schemes** | Any user-defined annotation scheme in CSV or JSON |
 
