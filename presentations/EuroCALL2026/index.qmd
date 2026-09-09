@@ -62,14 +62,20 @@ format:
 Novice and L2 academic writers often struggle to replicate the rhetorical expectations of research genres.
 
 - Students know they need to "provide background," but miss **how** it is done and what counts as appropriate presentation of background in academic writing
-- Rhetorical moves are often **implicit** and the ordering can be discipline-specific.
-- Explicit instruction and demonstration have been shown to benefit rhetorical strategies (Flowerdew 2000; Cheng 2007; 2008)
-- Limited exposure to discourse / narrative in STEM disciplines
+  * My teaching context: ESAP in STEM MSc in the UK, non-credit bearing module
 
-## What is Move-Step Analysis?
+- Rhetorical moves & steps are often **implicit** and the ordering can be discipline-specific.
+
+- Limited exposure to discourse / narrative in STEM disciplines (Falconer 2022; Ou & Söderlindh 2026)
+
+- Explicit instruction and demonstration have been shown to benefit rhetorical strategies (Flowerdew 2000; Cheng 2007; 2008)
+
+
+
+## What is Move-Step Analysis? 
 
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="45%" .scrollable-col}
 ::: {.callout-note}
 ### Swalesian CARS Model (1990; 2004)
 
@@ -91,21 +97,47 @@ Novice and L2 academic writers often struggle to replicate the rhetorical expect
 :::
 
 ::: {.column width="55%"}
-### Sample Steps in Introduction
+<!-- ### Sample Steps in Introduction -->
 
-"In recent years, AI-assisted language learning has attracted widespread attention in applied linguistics. **[Step 1]**
+::: {.r-stack .sample-stack}
+::: {.fragment .fade-out fragment-index=1}
+::: {.sample-text-box .sample-text-unannotated}
+<p>"In recent years, AI-assisted language learning has attracted widespread attention in applied linguistics.</p>
 
-Novice researchers often find mastering academic genre conventions challenging. **[Step 2]**
+<p>Novice researchers often find mastering academic genre conventions challenging.</p>
 
-Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical move patterns. **[Step 3]**" 
+<p>Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical move patterns."</p>
+:::
+:::
 
-* **M1-Step 1: Claiming centrality**\
-* **M1-Step 2: Topic generalization**\
-* **M1-Step 3: Reviewing previous research**\
+::: {.fragment .fade-in fragment-index=1}
+::: {.sample-text-box}
+::: {.step-block .step-1-highlight}
+"In recent years, AI-assisted language learning has attracted widespread attention in applied linguistics. <span class="step-badge step-1-badge">Step 1</span>
+:::
 
-    ::: {style font-color="#cbd5e6"}
-    By labelling the Moves and Steps, researchers have the tools to investigate (i) how these typical components are ordered and (ii) how they are realized in language. 
-    :::
+::: {.step-block .step-2-highlight}
+Novice researchers often find mastering academic genre conventions challenging. <span class="step-badge step-2-badge">Step 2</span>
+:::
+
+::: {.step-block .step-3-highlight}
+Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical move patterns." <span class="step-badge step-3-badge">Step 3</span>
+:::
+:::
+:::
+:::
+
+<!-- ::: {.fragment .fade-in fragment-index=1}
+<ul class="step-legend-list">
+  <li class="legend-step-1"><span class="legend-dot legend-dot-1"></span><strong>M1-Step 1: Claiming centrality</strong></li>
+  <li class="legend-step-2"><span class="legend-dot legend-dot-2"></span><strong>M1-Step 2: Topic generalization</strong></li>
+  <li class="legend-step-3"><span class="legend-dot legend-dot-3"></span><strong>M1-Step 3: Reviewing previous research</strong></li>
+</ul>
+::: -->
+
+::: {style="color: #64748b; font-size: 0.85em; margin-top: 0.5rem;"}
+By labelling the Moves and Steps, researchers have the tools to investigate (i) how these typical components are ordered and (ii) how they are realized in language. 
+:::
 :::
 :::
 
@@ -160,12 +192,12 @@ A pedagogical visualization toolkit designed for language educators, students, a
 
 ---
 
-## Anatomy of Rhetorical Moves and Steps 
+## Visualizing Moves and Steps 
 
 Similar to a DNA sequence, a row represents a unit containing foundamental elements:  
 
 ::: {style="text-align: center;"}
-![](img/movestepviz01.png){width="65%"}
+![](img/movestepviz01.png){width="50%"}
 :::
 
 * Each Move has a distinct color (Green = M1, Red = M2, etc.)
@@ -211,7 +243,7 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 # More Intuitive Input to MoveStepViz? {background-color="#cbd5e1"}
 
 ## Web Interface 
-<!-- Demo: <https://charles-lam.net/movestepviz/>{target="_blank"} -->
+Demo: <https://charles-lam.net/movestepviz/>{target="_blank"}
 
 <iframe 
   src="https://charles-lam.net/movestepviz/" 
@@ -220,11 +252,13 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 </iframe>
 
 
-
-# Implications 
+# Implications {background-color="#cbd5e1"}
 
 ## Data-Driven Learning for Genre Knowledge
 
+* With realistic examples, students are able to see how attested examples conform to the idealized models or how / where particular steps deviate from the norm. 
+* Potential to visualize student writing (requires further annotation)
+* Also: length of consecutive sentences for particular moves and steps can be useful for novice writers.  
 
 ## Educator as Developer
 
@@ -236,19 +270,15 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 
 :::: {.callout-lg .fragment}
 ::: {.callout-note}
-## What AI-assisted programming buys us
+## What AI-Assisted Programming Buys Us
 - Rapid prototyping & builds
 - Reduced technical challenge  
-- More time for creating bespoke tools! 
+- More time for creating bespoke tools 
+  * understanding of student needs   
+  * educators' domain expertise 
 :::
 ::::
 
-## Potential Use beyond Genre in EAP  
-
-* Narrative structure & progression 
-  - 
-
-* Interactions and turn-taking 
 
 # Summary & Takeaways {background-color="#cbd5e1"}
 
@@ -273,7 +303,13 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 
   Dudley-Evans, T., & St John, M. J. (1998). *Developments in English for specific purposes: A cross-curricular approach*. Cambridge University Press. 
 
+  Falconer, H. M. (2022). *Masking Inequality with good intentions: Systemic bias, counterspaces, and discourse acquisition in STEM Education*. WAC Clearinghouse. <https://wacclearinghouse.org/docs/books/masking/inequality.pdf>
+
   Flowerdew, L. (2000). Using a genre-based framework to teach organizational structure in academic writing. *ELT journal, 54*(4), 369-378.
+
+  Ou, A. W., & Söderlindh, L. (2026). The complexity of disciplinary literacy and identity in STEM: A case study of student language use in project-based learning. *Linguistics and Education, 95*, 101581. <https://doi.org/10.1016/j.linged.2026.101581>
+
+  Propp, V. (1968[1928]). *Morphology of the Folktale* (2 ed.), translated by L. Scott. University of Texas Press.
 
   Swales, J. M. (1990). *Genre analysis: English in academic and research settings*. Cambridge University Press. 
 
@@ -290,3 +326,25 @@ Similar to a DNA sequence, a row represents a unit containing foundamental eleme
 * **Package Documentation**: [pypi.org/project/movestepviz/](https://pypi.org/project/movestepviz/)
 :::
 :::
+
+
+# Further Discussion {background-color="#FFFFC5"}
+
+## Inclusivity and Support for Novice Writers
+- Genre knowledge is rarely taught explicitly in STEM curriculum
+  * Needs of MSc level students are different from UG 
+  * Sub-disciplinary differences (Biomedical vs. web lab disciplines vs. bioinformatics)
+- Novice writers, not just writers / language users with backgrounds in other languages (or "international students")
+  * "Home students" could use a lot of help too, especially in STEM disciplines.    
+
+- Addressing diversity in disciplines (by identifying various patterns and empirically how they differ from the idealized 'models')
+
+
+
+## Potential Use beyond Genre in EAP 
+
+* Narrative structure & progression (Formal structure in Russian formalism, Propp 1968[1928])
+
+* Interactions and turn-taking 
+
+  - Move:Step :: Speaker:Interactive device/patterns
