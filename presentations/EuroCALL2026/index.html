@@ -1,36 +1,65 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
-<script src="index_files/libs/quarto-html/tabby.min.js"></script>
-<script src="index_files/libs/quarto-html/popper.min.js"></script>
-<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<html lang="en">
+
+<head>
+  <script src="index_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="index_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="index_files/libs/quarto-html/popper.min.js"></script>
+  <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="index_files/libs/quarto-html/light-border.css" rel="stylesheet">
+  <link href="index_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css"
+    rel="stylesheet" id="quarto-text-highlighting-styles">
+  <meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <title>Visualizing the DNA of Discourse | EuroCALL 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="index_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: 1.5em;}
-    div.column{flex: auto;}
-    @media screen {
-    div.columns{gap: min(4vw, 1.5em);}
-    div.column{overflow-x: auto;}
+    span.smallcaps {
+      font-variant: small-caps;
     }
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+
+    div.columns {
+      display: flex;
+      gap: 1.5em;
+    }
+
+    div.column {
+      flex: auto;
+    }
+
+    @media screen {
+      div.columns {
+        gap: min(4vw, 1.5em);
+      }
+
+      div.column {
+        overflow-x: auto;
+      }
+    }
+
+    div.hanging-indent {
+      margin-left: 1.5em;
+      text-indent: -1.5em;
+    }
+
+    ul.task-list {
+      list-style: none;
+    }
+
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      margin: 0 0.8em 0.2em -1em;
+      /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */
       vertical-align: middle;
     }
   </style>
@@ -47,501 +76,609 @@
       margin: 0;
       overflow: auto;
     }
+
     .reveal div.hanging-indent {
       margin-left: 1em;
       text-indent: -1em;
     }
+
     .reveal .slide:not(.center) {
       height: 100%;
     }
+
     .reveal .slide.scrollable {
       overflow-y: auto;
     }
+
     .reveal .footnotes {
       height: 100%;
       overflow-y: auto;
     }
+
     .reveal .slide .absolute {
       position: absolute;
       display: block;
     }
+
     .reveal .footnotes ol {
       counter-reset: ol;
-      list-style-type: none; 
+      list-style-type: none;
       margin-left: 0;
     }
+
     .reveal .footnotes ol li:before {
       counter-increment: ol;
-      content: counter(ol) ". "; 
+      content: counter(ol) ". ";
     }
-    .reveal .footnotes ol li > p:first-child {
+
+    .reveal .footnotes ol li>p:first-child {
       display: inline-block;
     }
+
     .reveal .slide ul,
     .reveal .slide ol {
       margin-bottom: 0.5em;
     }
+
     .reveal .slide ul li,
     .reveal .slide ol li {
       margin-top: 0.4em;
       margin-bottom: 0.2em;
     }
+
     .reveal .slide ul[role="tablist"] li {
       margin-bottom: 0;
     }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
+
+    .reveal .slide ul li>*:first-child,
+    .reveal .slide ol li>*:first-child {
       margin-block-start: 0;
     }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
+
+    .reveal .slide ul li>*:last-child,
+    .reveal .slide ol li>*:last-child {
       margin-block-end: 0;
     }
+
     .reveal .slide .columns:nth-child(3) {
       margin-block-start: 0.8em;
     }
+
     .reveal blockquote {
       box-shadow: none;
     }
+
     .reveal .tippy-content>* {
       margin-top: 0.2em;
       margin-bottom: 0.7em;
     }
+
     .reveal .tippy-content>*:last-child {
       margin-bottom: 0.2em;
     }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
+
+    .reveal .slide>img.stretch.quarto-figure-center,
+    .reveal .slide>img.r-stretch.quarto-figure-center {
       display: block;
       margin-left: auto;
-      margin-right: auto; 
+      margin-right: auto;
     }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
+
+    .reveal .slide>img.stretch.quarto-figure-left,
+    .reveal .slide>img.r-stretch.quarto-figure-left {
       display: block;
       margin-left: 0;
-      margin-right: auto; 
+      margin-right: auto;
     }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
+
+    .reveal .slide>img.stretch.quarto-figure-right,
+    .reveal .slide>img.r-stretch.quarto-figure-right {
       display: block;
       margin-left: auto;
-      margin-right: 0; 
+      margin-right: 0;
     }
   </style>
   <link rel="icon" type="image/png" href="img/icon.png">
 </head>
+
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 
-<section class="slide level2">
+      <section class="slide level2">
 
-<div class="title-slide-container">
-  <div class="title-header">
-    <a href="https://blogs.ulster.ac.uk/eurocallconference2026/" target="_blank" rel="noopener noreferrer">
-      <img src="img/belfast_logo.jpg" class="belfast-logo nostretch" width="150" alt="Belfast 2026">
-    </a>
-    <div class="eurocall-title-text">EuroCALL 2026 | Belfast</div>
-  </div>
+        <div class="title-slide-container">
+          <div class="title-header">
+            <a href="https://blogs.ulster.ac.uk/eurocallconference2026/" target="_blank" rel="noopener noreferrer">
+              <img src="img/belfast_logo.jpg" class="belfast-logo nostretch" width="150" alt="Belfast 2026">
+            </a>
+            <div class="eurocall-title-text">EuroCALL 2026 | Belfast</div>
+          </div>
 
-  <div class="title-main-block">
-    <h1 class="title-heading">Visualizing the DNA of Discourse</h1>
-    <h3 class="title-subheading">Sequencing Rhetorical Moves and Steps in Python</h3>
-    <div class="title-author-text">Charles Lam, University of Leeds</div>
-    <div><a href="mailto:c.lam@leeds.ac.uk">c.lam@leeds.ac.uk</a></div>
-  </div>
+          <div class="title-main-block">
+            <h1 class="title-heading">Visualizing the DNA of Discourse</h1>
+            <h3 class="title-subheading">Sequencing Rhetorical Moves and Steps in Python</h3>
+            <div class="title-author-text">Charles Lam, University of Leeds</div>
+            <div><a href="mailto:c.lam@leeds.ac.uk">c.lam@leeds.ac.uk</a></div>
+          </div>
 
-  <div class="title-footer">
-    <img src="img/UOL_logo.png" class="uol-logo nostretch" width="350" alt="University of Leeds">
-  </div>
-</div>
-</section>
-<section id="overview" class="slide level2">
-<h2>Overview</h2>
-<ul>
-<li>The Pedagogical Challenge: Making academic discourse explicit</li>
-<li>Solution: Visualizing the Move-Step Analysis</li>
-<li><strong>MoveStepViz</strong>
-<ul>
-<li>Visualization tool inspired by Multiple Sequence Alignment (MSA) in bioinformatics</li>
-<li>Decoding and displaying rhetorical structure at a glance</li>
-</ul></li>
-<li>Implications:
-<ul>
-<li>Data-driven learning (DDL) for genre knowledge</li>
-<li>Potentials with genre analysis with AI-annotation</li>
-</ul></li>
-</ul>
-</section>
-<section>
-<section id="the-pedagogical-challenge" class="title-slide slide level1 center" data-background-color="#cbd5e1">
-<h1>The Pedagogical Challenge</h1>
+          <div class="title-footer">
+            <img src="img/UOL_logo.png" class="uol-logo nostretch" width="350" alt="University of Leeds">
+          </div>
+        </div>
+      </section>
+      <section id="overview" class="slide level2">
+        <h2>Overview</h2>
+        <ul>
+          <li>The Pedagogical Challenge: Making academic discourse explicit</li>
+          <li>Solution: Visualizing the Move-Step Analysis</li>
+          <li><strong>MoveStepViz</strong>
+            <ul>
+              <li>Visualization tool inspired by Multiple Sequence Alignment (MSA) in bioinformatics</li>
+              <li>Decoding and displaying rhetorical structure at a glance</li>
+            </ul>
+          </li>
+          <li>Implications:
+            <ul>
+              <li>Data-driven learning (DDL) for genre knowledge</li>
+              <li>Potentials with genre analysis with AI-annotation</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <section id="the-pedagogical-challenge" class="title-slide slide level1 center" data-background-color="#cbd5e1">
+          <h1>The Pedagogical Challenge</h1>
 
-</section>
-<section id="why-novice-writers-struggle-with-genre" class="slide level2">
-<h2>Why Novice Writers Struggle with Genre?</h2>
-<p>Novice and L2 academic writers often struggle to replicate the rhetorical expectations of research genres.</p>
-<ul>
-<li><p>Students know they need to “provide background,” but miss <strong>how</strong> it is done and what counts as appropriate presentation of background in academic writing</p>
-<ul>
-<li>My teaching context: ESAP in STEM MSc in the UK, non-credit bearing module</li>
-</ul></li>
-<li><p>Rhetorical moves &amp; steps are often <strong>implicit</strong> and the ordering can be discipline-specific.</p></li>
-<li><p>Limited exposure to discourse / narrative in STEM disciplines (Falconer 2022; Ou &amp; Söderlindh 2026)</p></li>
-<li><p>Explicit instruction and demonstration have been shown to benefit rhetorical strategies (Flowerdew 2000; Cheng 2007; 2008)</p></li>
-</ul>
-</section>
-<section id="what-is-move-step-analysis" class="slide level2">
-<h2>What is Move-Step Analysis?</h2>
-<div class="columns">
-<div class="column scrollable-col" style="width:45%;">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Swalesian CARS Model (1990; 2004)</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li><strong>Move 1: Establishing a territory</strong>
-<ul>
-<li><em>Step 1</em>: Claiming centrality</li>
-<li><em>Step 2</em>: Making topic generalizations</li>
-<li><em>Step 3</em>: Reviewing previous research</li>
-</ul></li>
-<li><strong>Move 2: Establishing a niche</strong>
-<ul>
-<li><em>Step 1</em>: Counter-claiming</li>
-<li><em>Step 2</em>: Indicating a gap</li>
-<li><em>Step 3</em>: Question-raising</li>
-<li><em>Step 4</em>: Continuing a tradition</li>
-</ul></li>
-<li><strong>Move 3: Occupying the niche</strong>
-<ul>
-<li><em>Step 1a</em>: Outlining purposes</li>
-<li><em>Step 1b</em>: Announcing present research</li>
-<li><em>Step 2</em>: Announcing principal findings</li>
-<li><em>Step 3</em>: Indicating research article structure</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="r-stack sample-stack">
-<div class="fragment fade-out" data-fragment-index="1">
-<div class="sample-text-box sample-text-unannotated">
-<p>
-“In recent years, AI-assisted language learning has attracted widespread attention in applied linguistics.
-</p>
-<p>
-Novice researchers often find mastering academic genre conventions challenging.
-</p>
-<p>
-Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical move patterns.”
-</p>
-</div>
-</div>
-<div class="fragment fade-in" data-fragment-index="1">
-<div class="sample-text-box">
-<div class="step-block step-1-highlight">
-<p>“In recent years, AI-assisted language learning has attracted widespread attention in applied linguistics. <span class="step-badge step-1-badge">Step 1</span></p>
-</div>
-<div class="step-block step-2-highlight">
-<p>Novice researchers often find mastering academic genre conventions challenging. <span class="step-badge step-2-badge">Step 2</span></p>
-</div>
-<div class="step-block step-3-highlight">
-<p>Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical move patterns.” <span class="step-badge step-3-badge">Step 3</span></p>
-</div>
-</div>
-</div>
-</div>
-<!-- ::: {.fragment .fade-in fragment-index=1}
+        </section>
+        <section id="why-novice-writers-struggle-with-genre" class="slide level2">
+          <h2>Why Novice Writers Struggle with Genre?</h2>
+          <p>Novice and L2 academic writers often struggle to replicate the rhetorical expectations of research genres.
+          </p>
+          <ul>
+            <li>
+              <p>Students know they need to “provide background,” but miss <strong>how</strong> it is done and what
+                counts as appropriate presentation of background in academic writing</p>
+              <ul>
+                <li>My teaching context: ESAP in STEM MSc in the UK, non-credit bearing module</li>
+              </ul>
+            </li>
+            <li>
+              <p>Rhetorical moves &amp; steps are often <strong>implicit</strong> and the ordering can be
+                discipline-specific.</p>
+            </li>
+            <li>
+              <p>Limited exposure to discourse / narrative in STEM disciplines (Falconer 2022; Ou &amp; Söderlindh 2026)
+              </p>
+            </li>
+            <li>
+              <p>Explicit instruction and demonstration have been shown to benefit rhetorical strategies (Flowerdew
+                2000; Cheng 2007; 2008)</p>
+            </li>
+          </ul>
+        </section>
+        <section id="what-is-move-step-analysis" class="slide level2">
+          <h2>What is Move-Step Analysis?</h2>
+          <div class="columns">
+            <div class="column scrollable-col" style="width:45%;">
+              <div class="callout callout-note callout-titled callout-style-default">
+                <div class="callout-body">
+                  <div class="callout-title">
+                    <div class="callout-icon-container">
+                      <i class="callout-icon"></i>
+                    </div>
+                    <p><strong>Swalesian CARS Model (1990; 2004)</strong></p>
+                  </div>
+                  <div class="callout-content">
+                    <ul>
+                      <li><strong>Move 1: Establishing a territory</strong>
+                        <ul>
+                          <li><em>Step 1</em>: Claiming centrality</li>
+                          <li><em>Step 2</em>: Making topic generalizations</li>
+                          <li><em>Step 3</em>: Reviewing previous research</li>
+                        </ul>
+                      </li>
+                      <li><strong>Move 2: Establishing a niche</strong>
+                        <ul>
+                          <li><em>Step 1</em>: Counter-claiming</li>
+                          <li><em>Step 2</em>: Indicating a gap</li>
+                          <li><em>Step 3</em>: Question-raising</li>
+                          <li><em>Step 4</em>: Continuing a tradition</li>
+                        </ul>
+                      </li>
+                      <li><strong>Move 3: Occupying the niche</strong>
+                        <ul>
+                          <li><em>Step 1a</em>: Outlining purposes</li>
+                          <li><em>Step 1b</em>: Announcing present research</li>
+                          <li><em>Step 2</em>: Announcing principal findings</li>
+                          <li><em>Step 3</em>: Indicating research article structure</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column" style="width:50%;">
+              <div class="r-stack sample-stack">
+                <div class="fragment fade-out" data-fragment-index="1">
+                  <div class="sample-text-box sample-text-unannotated">
+                    <p>
+                      “In recent years, AI-assisted language learning has attracted widespread attention in applied
+                      linguistics.
+                    </p>
+                    <p>
+                      Novice researchers often find mastering academic genre conventions challenging.
+                    </p>
+                    <p>
+                      Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of rhetorical
+                      move patterns.”
+                    </p>
+                  </div>
+                </div>
+                <div class="fragment fade-in" data-fragment-index="1">
+                  <div class="sample-text-box">
+                    <div class="step-block step-1-highlight">
+                      <p>“In recent years, AI-assisted language learning has attracted widespread attention in applied
+                        linguistics. <span class="step-badge step-1-badge">Step 1</span></p>
+                    </div>
+                    <div class="step-block step-2-highlight">
+                      <p>Novice researchers often find mastering academic genre conventions challenging. <span
+                          class="step-badge step-2-badge">Step 2</span></p>
+                    </div>
+                    <div class="step-block step-3-highlight">
+                      <p>Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the role of
+                        rhetorical move patterns.” <span class="step-badge step-3-badge">Step 3</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ::: {.fragment .fade-in fragment-index=1}
 <ul class="step-legend-list">
   <li class="legend-step-1"><span class="legend-dot legend-dot-1"></span><strong>M1-Step 1: Claiming centrality</strong></li>
   <li class="legend-step-2"><span class="legend-dot legend-dot-2"></span><strong>M1-Step 2: Topic generalization</strong></li>
   <li class="legend-step-3"><span class="legend-dot legend-dot-3"></span><strong>M1-Step 3: Reviewing previous research</strong></li>
 </ul>
 ::: -->
-<div style="color: #64748b; font-size: 0.85em; margin-top: 0.5rem;">
-<p>By labelling the Moves and Steps, researchers have the tools to investigate (i) how these typical components are ordered and (ii) how they are realized in language.</p>
-</div>
-</div></div>
-</section>
-<section id="multiple-sequence-alignment-msa" class="slide level2">
-<h2>Multiple Sequence Alignment (MSA)</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/multiseqalign.png" style="width:95.0%"></p>
-<figcaption>Multiple Sequence Alignment (MSA) in Bioinformatics <a href="https://en.wikipedia.org/wiki/Biological_data_visualization" class="uri">https://en.wikipedia.org/wiki/Biological_data_visualization</a></figcaption>
-</figure>
-</div>
-<ul>
-<li>Aligns DNA/RNA/amino acid sequences into colour-coded blocks.</li>
-<li>Reveals patterns, mutations, and conservation across organisms, by comparing rows.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="fragment">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>The “DNA of Discourse”</strong></p>
-</div>
-<div class="callout-content">
-<p><strong>Multiple Sequence Alignment</strong> in biology translates directly to <strong>Rhetorical Sequence Alignment</strong> in language education:</p>
-</div>
-</div>
-</div>
-<ul>
-<li>Like organisms, texts contain basic components that often display a <strong>normal</strong>, <strong>typical</strong> order.</li>
-<li>By visualizing the pattern, users can compare similarity and diversity.</li>
-</ul>
-</div>
-</div></div>
-</section></section>
-<section>
-<section id="introducing-movestepviz" class="title-slide slide level1 center" data-background-color="#cbd5e1">
-<h1>Introducing MoveStepViz</h1>
+              <div style="color: #64748b; font-size: 0.85em; margin-top: 0.5rem;">
+                <p>By labelling the Moves and Steps, researchers have the tools to investigate (i) how these typical
+                  components are ordered and (ii) how they are realized in language.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="multiple-sequence-alignment-msa" class="slide level2">
+          <h2>Multiple Sequence Alignment (MSA)</h2>
+          <div class="columns">
+            <div class="column" style="width:50%;">
+              <div class="quarto-figure quarto-figure-center">
+                <figure>
+                  <p><img data-src="img/multiseqalign.png" style="width:95.0%"></p>
+                  <figcaption>Multiple Sequence Alignment (MSA) in Bioinformatics <a
+                      href="https://en.wikipedia.org/wiki/Biological_data_visualization"
+                      class="uri">https://en.wikipedia.org/wiki/Biological_data_visualization</a></figcaption>
+                </figure>
+              </div>
+              <ul>
+                <li>Aligns DNA/RNA/amino acid sequences into colour-coded blocks.</li>
+                <li>Reveals patterns, mutations, and conservation across organisms, by comparing rows.</li>
+              </ul>
+            </div>
+            <div class="column" style="width:50%;">
+              <div class="fragment">
+                <div class="callout callout-note callout-titled callout-style-default">
+                  <div class="callout-body">
+                    <div class="callout-title">
+                      <div class="callout-icon-container">
+                        <i class="callout-icon"></i>
+                      </div>
+                      <p><strong>The “DNA of Discourse”</strong></p>
+                    </div>
+                    <div class="callout-content">
+                      <p><strong>Multiple Sequence Alignment</strong> in biology translates directly to
+                        <strong>Rhetorical Sequence Alignment</strong> in language education:</p>
+                    </div>
+                  </div>
+                </div>
+                <ul>
+                  <li>Like organisms, texts contain basic components that often display a <strong>normal</strong>,
+                    <strong>typical</strong> order.</li>
+                  <li>By visualizing the pattern, users can compare similarity and diversity.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section id="introducing-movestepviz" class="title-slide slide level1 center" data-background-color="#cbd5e1">
+          <h1>Introducing MoveStepViz</h1>
 
-</section>
-<section id="movestepviz" class="slide level2">
-<h2>MoveStepViz</h2>
-<p>A pedagogical visualization toolkit designed for language educators, students, and corpus linguists.</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<h3 id="python-package-movestepviz-v0.2.3">Python Package (<code>movestepviz</code> v0.2.3)</h3>
-<ul>
-<li>Open-source on PyPI</li>
-<li>Generates publication-ready DNA-strip diagrams.</li>
-<li>Pre-loaded with frequently-used rhetorical schemes (CARS, DRaC).</li>
-<li>Fully customizable colours, labels, and layouts.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<h3 id="web-interface">Web Interface</h3>
-<ul>
-<li>User-friendly interface for teachers and students</li>
-<li>Interactive exploration</li>
-<li>Drag-and-drop custom annotation upload</li>
-</ul>
-</div></div>
-</section>
-<section id="visualizing-moves-and-steps" class="slide level2">
-<h2>Visualizing Moves and Steps</h2>
-<p>Similar to a DNA sequence, a row represents a unit containing foundamental elements:</p>
-<div style="text-align: center;">
-<p><img data-src="img/movestepviz01.png" style="width:50.0%"></p>
-</div>
-<ul>
-<li>Each Move has a distinct color (Green = M1, Red = M2, etc.)</li>
-<li>Steps within the same move share shades of the family for intuitive hierarchy</li>
-<li>Readable In-Cell Labels (e.g.&nbsp;<code>M1-S1</code>, <code>M1-S2</code>, <code>M2-S1</code>, <code>M3-S1</code>)</li>
-</ul>
-<div class="fragment">
-<p><strong>This provides users an overview of the progression of moves, while keeping track of the exact steps used.</strong></p>
-<ul>
-<li>Some steps repeat</li>
-<li>Some steps are optional</li>
-</ul>
-</div>
-</section>
-<section id="pre-loaded-genre-section-schemes" class="slide level2">
-<h2>Pre-loaded Genre &amp; Section Schemes</h2>
-<p><br></p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Scheme</th>
-<th style="text-align: left;">Research Article Section</th>
-<th style="text-align: left;">Foundational Research</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>Swales2004</code></strong></td>
-<td style="text-align: left;"><strong>Introduction</strong> (CARS model)</td>
-<td style="text-align: left;">Swales (1990, 2004)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>Cotos_etal2017</code></strong></td>
-<td style="text-align: left;"><strong>Methods</strong> (DRaC model)</td>
-<td style="text-align: left;">Cotos, Huffman, &amp; Link (2017)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong><code>Yang_Allison2003_Results</code></strong></td>
-<td style="text-align: left;"><strong>Results</strong></td>
-<td style="text-align: left;">Yang &amp; Allison (2003)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong><code>Yang_Allison2003_Discussion</code></strong></td>
-<td style="text-align: left;"><strong>Discussion</strong></td>
-<td style="text-align: left;">Yang &amp; Allison (2003)</td>
-</tr>
-</tbody>
-</table>
-<p><br><br></p>
-<div class="line-block"><strong>Custom Schemes</strong> | Any user-defined annotation scheme in CSV or JSON |</div>
-</section>
-<section id="more-customization" class="slide level2">
-<h2>More Customization</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>Export of figure in various formats (JPG, PNG, SVG)</li>
-<li>Display and labelling options (<code>M1-S3</code> vs.&nbsp;<code>1c</code> vs.&nbsp;<code>1.3</code>)</li>
-<li>Custom colour palette to highlight particular moves/steps</li>
-<li>Basic statistics of steps (# of texts, # of steps, # of unique steps)</li>
-<li>Normalized Width mode (for longer sections)</li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p><img data-src="img/movestepviz02.png" style="width:90.0%"></p>
-</div></div>
-</section></section>
-<section>
-<section id="more-intuitive-input-to-movestepviz" class="title-slide slide level1 center" data-background-color="#cbd5e1">
-<h1>More Intuitive Input to MoveStepViz?</h1>
+        </section>
+        <section id="movestepviz" class="slide level2">
+          <h2>MoveStepViz</h2>
+          <p>A pedagogical visualization toolkit designed for language educators, students, and corpus linguists.</p>
+          <div class="columns">
+            <div class="column" style="width:50%;">
+              <h3 id="python-package-movestepviz-v0.2.3">Python Package (<code>movestepviz</code> v0.2.3)</h3>
+              <ul>
+                <li>Open-source on PyPI</li>
+                <li>Generates publication-ready DNA-strip diagrams.</li>
+                <li>Pre-loaded with frequently-used rhetorical schemes (CARS, DRaC).</li>
+                <li>Fully customizable colours, labels, and layouts.</li>
+              </ul>
+            </div>
+            <div class="column" style="width:50%;">
+              <h3 id="web-interface">Web Interface</h3>
+              <ul>
+                <li>User-friendly interface for teachers and students</li>
+                <li>Interactive exploration</li>
+                <li>Drag-and-drop custom annotation upload</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section id="visualizing-moves-and-steps" class="slide level2">
+          <h2>Visualizing Moves and Steps</h2>
+          <p>Similar to a DNA sequence, a row represents a unit containing foundamental elements:</p>
+          <div style="text-align: center;">
+            <p><img data-src="img/movestepviz01.png" style="width:50.0%"></p>
+          </div>
+          <ul>
+            <li>Each Move has a distinct color (Green = M1, Red = M2, etc.)</li>
+            <li>Steps within the same move share shades of the family for intuitive hierarchy</li>
+            <li>Readable In-Cell Labels (e.g.&nbsp;<code>M1-S1</code>, <code>M1-S2</code>, <code>M2-S1</code>,
+              <code>M3-S1</code>)</li>
+          </ul>
+          <div class="fragment">
+            <p><strong>This provides users an overview of the progression of moves, while keeping track of the exact
+                steps used.</strong></p>
+            <ul>
+              <li>Some steps repeat</li>
+              <li>Some steps are optional</li>
+            </ul>
+          </div>
+        </section>
+        <section id="pre-loaded-genre-section-schemes" class="slide level2">
+          <h2>Pre-loaded Genre &amp; Section Schemes</h2>
+          <p><br></p>
+          <table class="caption-top">
+            <colgroup>
+              <col style="width: 33%">
+              <col style="width: 33%">
+              <col style="width: 33%">
+            </colgroup>
+            <thead>
+              <tr class="header">
+                <th style="text-align: left;">Scheme</th>
+                <th style="text-align: left;">Research Article Section</th>
+                <th style="text-align: left;">Foundational Research</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="odd">
+                <td style="text-align: left;"><strong><code>Swales2004</code></strong></td>
+                <td style="text-align: left;"><strong>Introduction</strong> (CARS model)</td>
+                <td style="text-align: left;">Swales (1990, 2004)</td>
+              </tr>
+              <tr class="even">
+                <td style="text-align: left;"><strong><code>Cotos_etal2017</code></strong></td>
+                <td style="text-align: left;"><strong>Methods</strong> (DRaC model)</td>
+                <td style="text-align: left;">Cotos, Huffman, &amp; Link (2017)</td>
+              </tr>
+              <tr class="odd">
+                <td style="text-align: left;"><strong><code>Yang_Allison2003_Results</code></strong></td>
+                <td style="text-align: left;"><strong>Results</strong></td>
+                <td style="text-align: left;">Yang &amp; Allison (2003)</td>
+              </tr>
+              <tr class="even">
+                <td style="text-align: left;"><strong><code>Yang_Allison2003_Discussion</code></strong></td>
+                <td style="text-align: left;"><strong>Discussion</strong></td>
+                <td style="text-align: left;">Yang &amp; Allison (2003)</td>
+              </tr>
+            </tbody>
+          </table>
+          <p><br><br></p>
+          <div class="line-block"><strong>Custom Schemes</strong> | Any user-defined annotation scheme in CSV or JSON |
+          </div>
+        </section>
+        <section id="more-customization" class="slide level2">
+          <h2>More Customization</h2>
+          <div class="columns">
+            <div class="column" style="width:40%;">
+              <ul>
+                <li>Export of figure in various formats (JPG, PNG, SVG)</li>
+                <li>Display and labelling options (<code>M1-S3</code> vs.&nbsp;<code>1c</code>
+                  vs.&nbsp;<code>1.3</code>)</li>
+                <li>Custom colour palette to highlight particular moves/steps</li>
+                <li>Basic statistics of steps (# of texts, # of steps, # of unique steps)</li>
+                <li>Normalized Width mode (for longer sections)</li>
+              </ul>
+            </div>
+            <div class="column" style="width:60%;">
+              <p><img data-src="img/movestepviz02.png" style="width:90.0%"></p>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section id="more-intuitive-input-to-movestepviz" class="title-slide slide level1 center"
+          data-background-color="#cbd5e1">
+          <h1>More Intuitive Input to MoveStepViz?</h1>
 
-</section>
-<section id="web-interface-1" class="slide level2">
-<h2>Web Interface</h2>
-<p>Demo: <a href="https://charles-lam.net/movestepviz/" target="_blank">https://charles-lam.net/movestepviz/</a></p>
-<iframe src="https://charles-lam.net/movestepviz/" style="width: 100%; height: 700px; border: 0.5px solid #94a3b8; border-radius: 8px; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);" allow="clipboard-write">
-</iframe>
-</section></section>
-<section>
-<section id="implications" class="title-slide slide level1 center" data-background-color="#cbd5e1">
-<h1>Implications</h1>
+        </section>
+        <section id="web-interface-1" class="slide level2">
+          <h2>Web Interface</h2>
+          <p>Demo: <a href="https://charles-lam.net/movestepviz/"
+              target="_blank">https://charles-lam.net/movestepviz/</a></p>
+          <iframe src="https://charles-lam.net/movestepviz/"
+            style="width: 100%; height: 700px; border: 0.5px solid #94a3b8; border-radius: 8px; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"
+            allow="clipboard-write">
+          </iframe>
+        </section>
+      </section>
+      <section>
+        <section id="implications" class="title-slide slide level1 center" data-background-color="#cbd5e1">
+          <h1>Implications</h1>
 
-</section>
-<section id="data-driven-learning-for-genre-knowledge" class="slide level2">
-<h2>Data-Driven Learning for Genre Knowledge</h2>
-<ul>
-<li>With realistic examples, students are able to see how attested examples conform to the idealized models or how / where particular steps deviate from the norm.</li>
-<li>Potential to visualize student writing (requires further annotation)</li>
-<li>Also: length of consecutive sentences for particular moves and steps can be useful for novice writers.</li>
-</ul>
-</section>
-<section id="educator-as-developer" class="slide level2">
-<h2>Educator as Developer</h2>
-<p><em>Educator have always been developers:</em></p>
-<ul>
-<li>Making meaning (backend logic) visible with form (frontend interaction)</li>
-<li>Anticipating &amp; accommodating different ‘user behaviours’</li>
-<li>Constant error handling, adaptation &amp; updating</li>
-</ul>
-<div class="callout-lg fragment">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>What AI-Assisted Programming Buys Us</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Rapid prototyping &amp; builds</li>
-<li>Reduced technical challenge<br>
-</li>
-<li>More time for creating bespoke tools
-<ul>
-<li>understanding of student needs<br>
-</li>
-<li>educators’ domain expertise</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="summary-takeaways" class="title-slide slide level1 center" data-background-color="#cbd5e1">
-<h1>Summary &amp; Takeaways</h1>
-<ol type="1">
-<li>Making Rhetoric Moves-Step Analysis Visible</li>
-<li>Flexible Adoption (web interface &amp; Python package <code>movestepviz</code>)</li>
-<li>Empowering CALL Educators with custom tools for their own classroom needs</li>
-<li><strong>Next step</strong>: Connecting with automated annotation!</li>
-</ol>
-</section>
-<section id="thank-you-questions-and-comments-are-welcome" class="slide level2">
-<h2>Thank You! Questions and Comments Are Welcome!</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div style="font-size: 0.8em; max-height: 460px; overflow-y: auto; padding-right: 15px;">
-<p><strong>References</strong></p>
-<p>Cheng, A. (2007). Transferring generic features and recontextualizing genre awareness: Understanding writing performance in the ESP genre-based literacy framework. <em>English for specific purposes, 26</em>(3), 287-307.</p>
-<p>Cheng, A. (2008). Analyzing genre exemplars in preparation for writing: The case of an L2 graduate student in the ESP genre-based instructional framework of academic literacy. <em>Applied linguistics, 29</em>(1), 50-71.</p>
-<p>Cotos, E., Huffman, T., &amp; Link, S. (2017). <em>Research article abstracts as genre-specific texts: The generic-specific analysis (GSA)</em>. English for Specific Purposes, 46, 50-63.</p>
-<p>Dudley-Evans, T., &amp; St John, M. J. (1998). <em>Developments in English for specific purposes: A cross-curricular approach</em>. Cambridge University Press.</p>
-<p>Falconer, H. M. (2022). <em>Masking Inequality with good intentions: Systemic bias, counterspaces, and discourse acquisition in STEM Education</em>. WAC Clearinghouse. <a href="https://wacclearinghouse.org/docs/books/masking/inequality.pdf" class="uri">https://wacclearinghouse.org/docs/books/masking/inequality.pdf</a></p>
-<p>Flowerdew, L. (2000). Using a genre-based framework to teach organizational structure in academic writing. <em>ELT journal, 54</em>(4), 369-378.</p>
-<p>Ou, A. W., &amp; Söderlindh, L. (2026). The complexity of disciplinary literacy and identity in STEM: A case study of student language use in project-based learning. <em>Linguistics and Education, 95</em>, 101581. <a href="https://doi.org/10.1016/j.linged.2026.101581" class="uri">https://doi.org/10.1016/j.linged.2026.101581</a></p>
-<p>Propp, V. (1968[1928]). <em>Morphology of the Folktale</em> (2 ed.), translated by L. Scott. University of Texas Press.</p>
-<p>Swales, J. M. (1990). <em>Genre analysis: English in academic and research settings</em>. Cambridge University Press.</p>
-<p>Swales, J. M. (2004). <em>Research genres: Explorations and applications</em>. Cambridge University Press.</p>
-<p>Yang, R., &amp; Allison, D. (2003). <em>Research articles in abstracts: Structure, patterns of move-step organization, and their pedagogical implications for ESP</em>. English for Specific Purposes, 22(2), 127-148.</p>
-</div>
-</div><div class="column" style="width:45%;">
-<h3 id="project-resources">Project Resources</h3>
-<ul>
-<li><strong>Web App &amp; Slides</strong>: <a href="https://charles-lam.net/presentations/eurocall2026/">charles-lam.net/presentations/eurocall2026</a></li>
-<li><strong>PyPI Package</strong>: <code>pip install movestepviz</code></li>
-<li><strong>Package Documentation</strong>: <a href="https://pypi.org/project/movestepviz/">pypi.org/project/movestepviz/</a></li>
-</ul>
-</div></div>
-</section></section>
-<section>
-<section id="further-discussion" class="title-slide slide level1 center" data-background-color="#FFFFC5">
-<h1>Further Discussion</h1>
+        </section>
+        <section id="data-driven-learning-for-genre-knowledge" class="slide level2">
+          <h2>Data-Driven Learning for Genre Knowledge</h2>
+          <ul>
+            <li>With realistic examples, students are able to see how attested examples conform to the idealized models
+              or how / where particular steps deviate from the norm.</li>
+            <li>Potential to visualize student writing (requires further annotation)</li>
+            <li>Also: length of consecutive sentences for particular moves and steps can be useful for novice writers.
+            </li>
+          </ul>
+        </section>
+        <section id="educator-as-developer" class="slide level2">
+          <h2>Educator as Developer</h2>
+          <p><em>Educator have always been developers:</em></p>
+          <ul>
+            <li>Making meaning (backend logic) visible with form (frontend interaction)</li>
+            <li>Anticipating &amp; accommodating different ‘user behaviours’</li>
+            <li>Constant error handling, adaptation &amp; updating</li>
+          </ul>
+          <div class="callout-lg fragment">
+            <div class="callout callout-note callout-titled callout-style-default">
+              <div class="callout-body">
+                <div class="callout-title">
+                  <div class="callout-icon-container">
+                    <i class="callout-icon"></i>
+                  </div>
+                  <p><strong>What AI-Assisted Programming Buys Us</strong></p>
+                </div>
+                <div class="callout-content">
+                  <ul>
+                    <li>Rapid prototyping &amp; builds</li>
+                    <li>Reduced technical challenge<br>
+                    </li>
+                    <li>More time for creating bespoke tools
+                      <ul>
+                        <li>understanding of student needs<br>
+                        </li>
+                        <li>educators’ domain expertise</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section id="summary-takeaways" class="title-slide slide level1 center" data-background-color="#cbd5e1">
+          <h1>Summary &amp; Takeaways</h1>
+          <ol type="1">
+            <li>Making Rhetoric Moves-Step Analysis Visible</li>
+            <li>Flexible Adoption (web interface &amp; Python package <code>movestepviz</code>)</li>
+            <li>Empowering CALL Educators with custom tools for their own classroom needs</li>
+            <li><strong>Next step</strong>: Connecting with automated annotation!</li>
+          </ol>
+        </section>
+        <section id="thank-you-questions-and-comments-are-welcome" class="slide level2">
+          <h2>Thank You! Questions and Comments Are Welcome!</h2>
+          <div class="columns">
+            <div class="column" style="width:55%;">
+              <div style="font-size: 0.8em; max-height: 460px; overflow-y: auto; padding-right: 15px;">
+                <p><strong>References</strong></p>
+                <p>Cheng, A. (2007). Transferring generic features and recontextualizing genre awareness: Understanding
+                  writing performance in the ESP genre-based literacy framework. <em>English for specific purposes,
+                    26</em>(3), 287-307.</p>
+                <p>Cheng, A. (2008). Analyzing genre exemplars in preparation for writing: The case of an L2 graduate
+                  student in the ESP genre-based instructional framework of academic literacy. <em>Applied linguistics,
+                    29</em>(1), 50-71.</p>
+                <p>Cotos, E., Huffman, T., &amp; Link, S. (2017). <em>Research article abstracts as genre-specific
+                    texts: The generic-specific analysis (GSA)</em>. English for Specific Purposes, 46, 50-63.</p>
+                <p>Dudley-Evans, T., &amp; St John, M. J. (1998). <em>Developments in English for specific purposes: A
+                    cross-curricular approach</em>. Cambridge University Press.</p>
+                <p>Falconer, H. M. (2022). <em>Masking Inequality with good intentions: Systemic bias, counterspaces,
+                    and discourse acquisition in STEM Education</em>. WAC Clearinghouse. <a
+                    href="https://wacclearinghouse.org/docs/books/masking/inequality.pdf"
+                    class="uri">https://wacclearinghouse.org/docs/books/masking/inequality.pdf</a></p>
+                <p>Flowerdew, L. (2000). Using a genre-based framework to teach organizational structure in academic
+                  writing. <em>ELT journal, 54</em>(4), 369-378.</p>
+                <p>Ou, A. W., &amp; Söderlindh, L. (2026). The complexity of disciplinary literacy and identity in STEM:
+                  A case study of student language use in project-based learning. <em>Linguistics and Education,
+                    95</em>, 101581. <a href="https://doi.org/10.1016/j.linged.2026.101581"
+                    class="uri">https://doi.org/10.1016/j.linged.2026.101581</a></p>
+                <p>Propp, V. (1968[1928]). <em>Morphology of the Folktale</em> (2 ed.), translated by L. Scott.
+                  University of Texas Press.</p>
+                <p>Swales, J. M. (1990). <em>Genre analysis: English in academic and research settings</em>. Cambridge
+                  University Press.</p>
+                <p>Swales, J. M. (2004). <em>Research genres: Explorations and applications</em>. Cambridge University
+                  Press.</p>
+                <p>Yang, R., &amp; Allison, D. (2003). <em>Research articles in abstracts: Structure, patterns of
+                    move-step organization, and their pedagogical implications for ESP</em>. English for Specific
+                  Purposes, 22(2), 127-148.</p>
+              </div>
+            </div>
+            <div class="column" style="width:45%;">
+              <h3 id="project-resources">Project Resources</h3>
+              <ul>
+                <li><strong>Slides</strong>: <a
+                    href="https://charles-lam.net/presentations/EuroCALL2026/">charles-lam.net/presentations/EuroCALL2026</a>
+                </li>
+                <li><strong>Web App</strong>: <a
+                    href="https://charles-lam.net/movestepviz/">charles-lam.net/movestepviz</a></li>
+                <li><strong>PyPI Package</strong>: <code>pip install movestepviz</code></li>
+                <li><strong>Package Documentation</strong>: <a
+                    href="https://pypi.org/project/movestepviz/">pypi.org/project/movestepviz/</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <section id="further-discussion" class="title-slide slide level1 center" data-background-color="#FFFFC5">
+          <h1>Further Discussion</h1>
 
-</section>
-<section id="inclusivity-and-support-for-novice-writers" class="slide level2">
-<h2>Inclusivity and Support for Novice Writers</h2>
-<ul>
-<li>Genre knowledge is rarely taught explicitly in STEM curriculum
-<ul>
-<li>Needs of MSc level students are different from UG</li>
-<li>Sub-disciplinary differences (Biomedical vs.&nbsp;web lab disciplines vs.&nbsp;bioinformatics)</li>
-</ul></li>
-<li>Novice writers, not just writers / language users with backgrounds in other languages (or “international students”)
-<ul>
-<li>“Home students” could use a lot of help too, especially in STEM disciplines.</li>
-</ul></li>
-<li>Addressing diversity in disciplines (by identifying various patterns and empirically how they differ from the idealized ‘models’)</li>
-</ul>
-</section>
-<section id="potential-use-beyond-genre-in-eap" class="slide level2">
-<h2>Potential Use beyond Genre in EAP</h2>
-<ul>
-<li><p>Narrative structure &amp; progression (Formal structure in Russian formalism, Propp 1968[1928])</p></li>
-<li><p>Interactions and turn-taking</p>
-<ul>
-<li>Move:Step :: Speaker:Interactive device/patterns</li>
-</ul></li>
-</ul>
+        </section>
+        <section id="inclusivity-and-support-for-novice-writers" class="slide level2">
+          <h2>Inclusivity and Support for Novice Writers</h2>
+          <ul>
+            <li>Genre knowledge is rarely taught explicitly in STEM curriculum
+              <ul>
+                <li>Needs of MSc level students are different from UG</li>
+                <li>Sub-disciplinary differences (Biomedical vs.&nbsp;web lab disciplines vs.&nbsp;bioinformatics)</li>
+              </ul>
+            </li>
+            <li>Novice writers, not just writers / language users with backgrounds in other languages (or “international
+              students”)
+              <ul>
+                <li>“Home students” could use a lot of help too, especially in STEM disciplines.</li>
+              </ul>
+            </li>
+            <li>Addressing diversity in disciplines (by identifying various patterns and empirically how they differ
+              from the idealized ‘models’)</li>
+          </ul>
+        </section>
+        <section id="potential-use-beyond-genre-in-eap" class="slide level2">
+          <h2>Potential Use beyond Genre in EAP</h2>
+          <ul>
+            <li>
+              <p>Narrative structure &amp; progression (Formal structure in Russian formalism, Propp 1968[1928])</p>
+            </li>
+            <li>
+              <p>Interactions and turn-taking</p>
+              <ul>
+                <li>Move:Step :: Speaker:Interactive device/patterns</li>
+              </ul>
+            </li>
+          </ul>
 
-</section></section>
+        </section>
+      </section>
     </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
+    <div class="quarto-auto-generated-content" style="display: none;">
+      <div class="footer footer-default">
 
-</div>
-</div></div>
+      </div>
+    </div>
+  </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="index_files/libs/revealjs/dist/reveal.js"></script>
@@ -552,7 +689,7 @@ Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the r
   <script src="index_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="index_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="index_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
+
 
   <script src="index_files/libs/revealjs/plugin/notes/notes.js"></script>
   <script src="index_files/libs/revealjs/plugin/search/search.js"></script>
@@ -562,370 +699,374 @@ Previous studies (e.g., Swales, 1990; Cotos et al., 2017) have highlighted the r
 
   <script>
 
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
-'smaller': true,
- 
-        // Display controls in the bottom right corner
-        controls: false,
+    // Full list of configuration options available at:
+    // https://revealjs.com/config/
+    Reveal.initialize({
+      'controlsAuto': true,
+      'previewLinksAuto': false,
+      'pdfSeparateFragments': false,
+      'autoAnimateEasing': "ease",
+      'autoAnimateDuration': 1,
+      'autoAnimateUnmatched': true,
+      'jumpToSlide': true,
+      'menu': { "side": "left", "useTextContentForMissingTitles": true, "markers": false, "loadIcons": false, "custom": [{ "title": "Tools", "icon": "<i class=\"fas fa-gear\"></i>", "content": "<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>" }], "openButton": true },
+      'chalkboard': { "buttons": true },
+      'smaller': true,
 
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
+      // Display controls in the bottom right corner
+      controls: false,
 
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
+      // Help the user learn the controls by providing hints, for example by
+      // bouncing the down arrow when they first encounter a vertical slide
+      controlsTutorial: false,
 
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
+      // Determines where controls appear, "edges" or "bottom-right"
+      controlsLayout: 'edges',
 
-        // Display a presentation progress bar
-        progress: true,
+      // Visibility rule for backwards navigation arrows; "faded", "hidden"
+      // or "visible"
+      controlsBackArrows: 'faded',
 
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
+      // Display a presentation progress bar
+      progress: true,
 
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
+      // Display the page number of the current slide
+      slideNumber: 'c/t',
 
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
+      // 'all', 'print', or 'speaker'
+      showSlideNumber: 'all',
 
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
+      // Add the current slide number to the URL hash so that reloading the
+      // page/copying the URL will return you to the same slide
+      hash: true,
 
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
+      // Start with 1 for the hash rather than 0
+      hashOneBasedIndex: false,
 
-        // Push each slide change to the browser history
-        history: true,
+      // Flags if we should monitor the hash and change slides accordingly
+      respondToHashChanges: true,
 
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
+      // Push each slide change to the browser history
+      history: true,
 
-        // Enable the slide overview mode
-        overview: true,
+      // Enable keyboard shortcuts for navigation
+      keyboard: true,
 
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
+      // Enable the slide overview mode
+      overview: true,
 
-        // Vertical centering of slides
-        center: false,
+      // Disables the default reveal.js slide layout (scaling and centering)
+      // so that you can use custom CSS layout
+      disableLayout: false,
 
-        // Enables touch navigation on devices with touch input
-        touch: true,
+      // Vertical centering of slides
+      center: false,
 
-        // Loop the presentation
-        loop: false,
+      // Enables touch navigation on devices with touch input
+      touch: true,
 
-        // Change the presentation direction to be RTL
-        rtl: false,
+      // Loop the presentation
+      loop: false,
 
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
+      // Change the presentation direction to be RTL
+      rtl: false,
 
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
+      // see https://revealjs.com/vertical-slides/#navigation-mode
+      navigationMode: 'linear',
 
-        // Turns fragments on and off globally
-        fragments: true,
+      // Randomizes the order of slides each time the presentation loads
+      shuffle: false,
 
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
+      // Turns fragments on and off globally
+      fragments: true,
 
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
+      // Flags whether to include the current fragment in the URL,
+      // so that reloading brings you to the same fragment position
+      fragmentInURL: false,
 
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
+      // Flags if the presentation is running in an embedded mode,
+      // i.e. contained within a limited portion of the screen
+      embedded: false,
 
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
+      // Flags if we should show a help overlay when the questionmark
+      // key is pressed
+      help: true,
 
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
+      // Flags if it should be possible to pause the presentation (blackout)
+      pause: true,
 
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
+      // Flags if speaker notes should be visible to all viewers
+      showNotes: false,
 
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
+      // Global override for autoplaying embedded media (null/true/false)
+      autoPlayMedia: null,
 
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 0,
+      // Global override for preloading lazy-loaded iframes (null/true/false)
+      preloadIframes: null,
 
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
+      // Number of milliseconds between automatically proceeding to the
+      // next slide, disabled when set to 0, this value can be overwritten
+      // by using a data-autoslide attribute on your slides
+      autoSlide: 0,
 
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
+      // Stop auto-sliding after user input
+      autoSlideStoppable: true,
 
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
+      // Use this method for navigation when auto-sliding
+      autoSlideMethod: null,
 
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
+      // Specify the average time in seconds that you think you will spend
+      // presenting each slide. This is used to show a pacing timer in the
+      // speaker view
+      defaultTiming: null,
 
-        // The display mode that will be used to show slides
-        display: 'block',
+      // Enable slide navigation via mouse wheel
+      mouseWheel: false,
 
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
+      // The display mode that will be used to show slides
+      display: 'block',
 
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
+      // Hide cursor if inactive
+      hideInactiveCursor: true,
 
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
+      // Time before the cursor is hidden (in ms)
+      hideCursorTime: 5000,
 
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
+      // Opens links in an iframe preview overlay
+      previewLinks: false,
 
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
+      // Transition style (none/fade/slide/convex/concave/zoom)
+      transition: 'slide',
 
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'none',
+      // Transition speed (default/fast/slow)
+      transitionSpeed: 'default',
 
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
+      // Transition style for full page slide backgrounds
+      // (none/fade/slide/convex/concave/zoom)
+      backgroundTransition: 'none',
 
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
+      // Number of slides away from the current that are visible
+      viewDistance: 3,
 
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1050,
+      // Number of slides away from the current that are visible on mobile
+      // devices. It is advisable to set this to a lower number than
+      // viewDistance in order to save resources.
+      mobileViewDistance: 2,
 
-        height: 700,
+      // The "normal" size of the presentation, aspect ratio will be preserved
+      // when the presentation is scaled to fit different resolutions. Can be
+      // specified using percentage units.
+      width: 1050,
 
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
+      height: 700,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
+      // Factor of the display size that should remain empty around the content
+      margin: 0.1,
+
+      math: {
+        mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+        config: 'TeX-AMS_HTML-full',
+        tex2jax: {
+          inlineMath: [['\\(', '\\)']],
+          displayMath: [['\\[', '\\]']],
+          balanceBraces: true,
+          processEscapes: false,
+          processRefs: true,
+          processEnvironments: true,
+          preview: 'TeX',
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          ignoreClass: 'tex2jax_ignore',
+          processClass: 'tex2jax_process'
         },
+      },
 
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+      // reveal.js plugins
+      plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
 
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+        RevealMath,
+        RevealNotes,
+        RevealSearch,
+        RevealZoom
+      ]
+    });
+  </script>
+  <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const tabsets = window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function (tabset) {
+        const tabby = new Tabby('#' + tabset.id);
       });
-    </script>
-    <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {
+            return true;
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
-        }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-                // target, if specified
-                link.setAttribute("target", "_blank");
-                if (link.getAttribute("rel") === null) {
-                  link.setAttribute("rel", "noopener");
-                }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
-            } else {
-              return "";
-            }
-          });
-        }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
-            }
-          } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+        return false;
+      }
+      const onCopySuccess = function (e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button,
+            {
+              trigger: "manual",
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]
             });
+          tooltip.show();
+        }
+        setTimeout(function () {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function (trigger) {
+        const outerScaffold = trigger.parentElement.cloneNode(true);
+        const codeEl = outerScaffold.querySelector('code');
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
+        return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
-      </script>
-    
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i = 0; i < links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+        }
+      }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function (el) {
+            return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+        config['offset'] = [0, 0];
+        config['maxWidth'] = 700;
+        window.tippy(el, config);
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i = 0; i < noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function () {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch { }
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i = 0; i < bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function () {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function (cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+  </script>
 
-</body></html>
+
+</body>
+
+</html>
